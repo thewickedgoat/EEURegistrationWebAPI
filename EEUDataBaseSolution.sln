@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEUDataBase", "EEUDataBase\EEUDataBase.csproj", "{F1AA5944-6109-48B7-BEBE-57D649C87C06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EEUDataBase-DLL", "EEUDataBase-DLL\EEUDataBase-DLL.csproj", "{555A90C0-2BE0-4B5E-9E45-1902744FC1E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1AA5944-6109-48B7-BEBE-57D649C87C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AA5944-6109-48B7-BEBE-57D649C87C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AA5944-6109-48B7-BEBE-57D649C87C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AA5944-6109-48B7-BEBE-57D649C87C06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{555A90C0-2BE0-4B5E-9E45-1902744FC1E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555A90C0-2BE0-4B5E-9E45-1902744FC1E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555A90C0-2BE0-4B5E-9E45-1902744FC1E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555A90C0-2BE0-4B5E-9E45-1902744FC1E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
