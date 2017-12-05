@@ -61,6 +61,7 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest(ModelState);
             }
+            absence.Date = absence.Date.AddHours(1);
             absenceDB.Create(absence);
 
             return CreatedAtRoute("DefaultAPI", new { id = absence.Id }, absence);
@@ -75,10 +76,11 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest(ModelState);
             }
+            absence.Date = absence.Date.AddHours(1);
 
-            
+
             //checks that the incoming Id is matching with the ID on the absence to update 
-            if(id != absence.Id)
+            if (id != absence.Id)
             {
                 return BadRequest();
             }

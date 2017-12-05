@@ -211,11 +211,22 @@ namespace EEUDataBase_DLL.Models
             Absence a15 = new Absence() { Employee = employee4, Date = DateTime.Today.AddDays(12), Status = Status.S };
             Absence a16 = new Absence() { Employee = employee4, Date = DateTime.Today.AddDays(8), Status = Status.S };
 
-            Absence a17 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(-7), Status = Status.A };
-            Absence a18 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(-14), Status = Status.A };
-            Absence a19 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(0), Status = Status.SN };
-            Absence a20 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(-21), Status = Status.HA };
-            Absence a21 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(-28), Status = Status.FF };
+            Absence a17 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(5), Status = Status.A };
+            Absence a18 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(15), Status = Status.A };
+            Absence a19 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(16), Status = Status.SN };
+            Absence a20 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(17), Status = Status.HA };
+            Absence a21 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(18), Status = Status.FF };
+            Absence a37 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(19), Status = Status.FF };
+            Absence a38 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(11), Status = Status.FF };
+            Absence a39 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(13), Status = Status.FF };
+            Absence a40 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(6), Status = Status.FF };
+            Absence a41 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(8), Status = Status.FF };
+            Absence a42 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(4), Status = Status.FF };
+            Absence a43 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(2), Status = Status.FF };
+            Absence a44 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(14), Status = Status.FF };
+            Absence a45 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(7), Status = Status.FF };
+            Absence a46 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(9), Status = Status.FF };
+            Absence a47 = new Absence() { Employee = employee5, Date = DateTime.Today.AddDays(10), Status = Status.FF };
 
             Absence a22 = new Absence() { Employee = employee6, Date = DateTime.Today.AddDays(8), Status = Status.FF };
             Absence a23 = new Absence() { Employee = employee6, Date = DateTime.Today.AddDays(3), Status = Status.FF };
@@ -278,7 +289,17 @@ namespace EEUDataBase_DLL.Models
             employee5.Absences.Add(a18);
             employee5.Absences.Add(a19);
             employee5.Absences.Add(a20);
-            employee5.Absences.Add(a21);
+            employee5.Absences.Add(a37);
+            employee5.Absences.Add(a38);
+            employee5.Absences.Add(a39);
+            employee5.Absences.Add(a40);
+            employee5.Absences.Add(a41);
+            employee5.Absences.Add(a42);
+            employee5.Absences.Add(a43);
+            employee5.Absences.Add(a44);
+            employee5.Absences.Add(a45);
+            employee5.Absences.Add(a46);
+            employee5.Absences.Add(a47);
 
             employee6.Absences.Add(a22);
             employee6.Absences.Add(a23);

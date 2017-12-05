@@ -50,7 +50,7 @@ namespace EEUDataBase_DLL.Models
         public DbSet<Employee> Employees { get; set; }
         public void MarkEmployeeAsModified(Employee newEmployee, Employee employeeToUpdate)
         {
-            Entry(newEmployee).CurrentValues.SetValues(employeeToUpdate);
+            Entry(employeeToUpdate).CurrentValues.SetValues(newEmployee);
         }
     }
 }

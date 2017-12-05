@@ -107,9 +107,8 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-                t.Employee = dbContext.Employees.Include("Absences").FirstOrDefault(x => x.Id == t.Employee.Id);
-                var oldAbsence = dbContext.Absences.FirstOrDefault(x => x.Id == t.Id);
-                oldAbsence.Employee = t.Employee;
+                //t.Employee = dbContext.Employees.Include("Absences").FirstOrDefault(x => x.Id == t.Employee.Id);
+                var oldAbsence = dbContext.Absences.Include("Employee").FirstOrDefault(x => x.Id == t.Id);
                 dbContext.MarkAbsenceAsModified(t, oldAbsence);
                 dbContext.SaveChanges();
                 return t;
