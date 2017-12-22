@@ -19,7 +19,7 @@ namespace EEUDataBase.Controllers
 
         private IAbsenceDB absenceDB = new DLLFacade().GetAbsenceDB(new ApplicationDbContext());
 
-        //[Authorize]
+        [Authorize]
         // GET: api/Absences
         public IQueryable<Absence> GetAbsences()
         {
@@ -35,7 +35,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET: api/Absences/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Absence))]
         public IHttpActionResult GetAbsence(int id)
         {
@@ -53,7 +53,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST: api/Absence
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Absence))]
         public IHttpActionResult PostAbsence(Absence absence)
         {
@@ -61,14 +61,14 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest(ModelState);
             }
-            absence.Date = absence.Date.AddHours(1);
+            absence.Date = absence.Date.AddHours(4);
             absenceDB.Create(absence);
 
             return CreatedAtRoute("DefaultAPI", new { id = absence.Id }, absence);
         }
 
         // PUT: api/Absence/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAbsence(int id, Absence absence)
         {
@@ -76,7 +76,7 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest(ModelState);
             }
-            absence.Date = absence.Date.AddHours(1);
+            absence.Date = absence.Date.AddHours(4);
 
 
             //checks that the incoming Id is matching with the ID on the absence to update 
@@ -90,7 +90,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE: api/Absence/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Absence))]
         public IHttpActionResult DeleteAbsence(int id)
         {
@@ -101,7 +101,7 @@ namespace EEUDataBase.Controllers
 
             absenceDB.Delete(id);
 
-            return Ok();
+            return Ok(id);
         }
     }
 }

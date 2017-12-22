@@ -58,7 +58,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/Account/Register
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(Employee employee)
         {
@@ -66,7 +66,7 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var applicationUser = new ApplicationUser() { UserName = employee.UserName, Email = employee.Email };
+            var applicationUser = new ApplicationUser() { UserName = employee.UserName, Email = employee.Email};
             IdentityResult result = await UserManager.CreateAsync(applicationUser, employee.Password);
             await UserManager.AddToRoleAsync(applicationUser.Id, employee.EmployeeRole.ToString());
             if (!result.Succeeded)
@@ -74,7 +74,7 @@ namespace EEUDataBase.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return Ok(employee.Id);
         }
         private IAuthenticationManager Authentication
         {

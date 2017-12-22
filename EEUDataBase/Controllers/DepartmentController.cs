@@ -17,7 +17,7 @@ namespace EEUDataBase.Controllers
         private IDataBase<Department, int> departmentDB = new DLLFacade().GetDepartmentDB(new ApplicationDbContext());
 
         // GET api/Departments>
-        //[Authorize]
+        [Authorize]
         public IQueryable<Department> GetDepartments()
         {
             return new EnumerableQuery<Department>(departmentDB.ReadAll());
@@ -32,7 +32,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/Departments/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetDepartment(int id)
         {
@@ -45,7 +45,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/Departments
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult PostDepartment(Department department)
         {
@@ -77,7 +77,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE api/Departments/5
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult DeleteDepartment(int id)
         {

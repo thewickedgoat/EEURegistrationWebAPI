@@ -15,6 +15,9 @@ namespace EEUDataBase_DLL.Entities
         public Employee Employee { get; set; }
         public DateTime Date { get; set; }
         public Status Status { get; set; }
+        public bool IsLockedByEmployee { get; set; }
+        public bool IsLockedByChief { get; set; }
+        public bool IsLockedByAdmin { get; set; }
 
     }
 }

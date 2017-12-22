@@ -33,7 +33,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/Employees/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
         {
@@ -56,17 +56,6 @@ namespace EEUDataBase.Controllers
                 return BadRequest(ModelState);
             }
             employeeDB.Create(employee);
-
-            //var userStore = new UserStore<ApplicationUser>(context);
-            //var userManager = new ApplicationUserManager(userStore);
-
-            //var user = new ApplicationUser
-            //{
-            //    Email = employee.Email,
-            //    UserName = employee.UserName
-            //};
-            //userManager.Create(user, employee.Password);
-            //userManager.AddToRole(user.Id, employee.EmployeeRole.ToString());
 
             return CreatedAtRoute("DefaultApi", new { id = employee.Id }, employee);
         }

@@ -1,3 +1,4 @@
+C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\obj\Debug\EEUDataBase.csprojResolveAssemblyReference.cache
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\bin\ApplicationInsights.config
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\bin\roslyn\csc.exe
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\bin\roslyn\csc.exe.config
@@ -99,6 +100,5 @@ C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUData
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\bin\Microsoft.AI.Web.xml
-C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\obj\Debug\EEUDataBase.csprojResolveAssemblyReference.cache
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\obj\Debug\EEUDataBase.dll
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\obj\Debug\EEUDataBase.pdb

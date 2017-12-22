@@ -50,7 +50,7 @@ namespace EEUDataBase_DLL.Repositories
          */
         public bool Delete(int id)
         {
-            using (var dbContext = GetContext())
+            using (var dbContext = new ApplicationDbContext())
             {
                 var toBeDeleted = dbContext.Absences.FirstOrDefault(x => x.Id == id);
                 if (toBeDeleted != null)
