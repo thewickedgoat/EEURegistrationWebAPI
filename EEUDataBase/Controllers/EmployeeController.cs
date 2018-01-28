@@ -61,7 +61,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT api/Employees/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutEmployee(int id, Employee employee)
         {
@@ -79,7 +79,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE api/Employees/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(int))]
         public IHttpActionResult DeleteEmployee(int id)
         {
