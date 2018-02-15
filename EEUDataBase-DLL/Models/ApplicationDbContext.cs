@@ -27,10 +27,20 @@ namespace EEUDataBase_DLL.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Employee>().HasOptional(e => e.Department).WithMany(d => d.Employees);
-            //.WillCascadeOnDelete(false);
+            //Modelbuilder for Absences
+            modelBuilder.Entity<Absence>().HasRequired(a => a.Status);
+            modelBuilder.Entity<Absence>().HasRequired(a => a.Month).WithMany(m => m.AbsencesInMonth);
 
-            modelBuilder.Entity<Absence>().HasRequired(a => a.Employee).WithMany(e => e.Absences);
+            //Modelbuilder for Employees
+            modelBuilder.Entity<Employee>().HasRequired(e => e.Department).WithMany(d => d.Employees);
+            
+            //.WillCascadeOnDelete(false); 
+
+            //Modelbuilder for HolidayYear
+            modelBuilder.Entity<HolidayYear>().HasRequired(h => h.Employee).WithMany(e => e.HolidayYears).WillCascadeOnDelete(); 
+
+            //Modelbuilder for Months
+            modelBuilder.Entity<Month>().HasRequired(m => m.Employee);
 
             base.OnModelCreating(modelBuilder);
         }
@@ -51,6 +61,22 @@ namespace EEUDataBase_DLL.Models
         public void MarkEmployeeAsModified(Employee newEmployee, Employee employeeToUpdate)
         {
             Entry(employeeToUpdate).CurrentValues.SetValues(newEmployee);
+        }
+        public DbSet<HolidayYear> HolidayYears { get; set; }
+        public void MarkHolidayYearAsModified(HolidayYear holidayYear)
+        {
+            Entry(holidayYear).State = EntityState.Modified;
+            //Entry(holidayYearToUpdate).CurrentValues.SetValues(newHolidayYear);
+        }
+        public DbSet<Month> Months { get; set; }
+        public void MarkMonthAsModified(Month newMonth, Month monthToUpdate)
+        {
+            Entry(monthToUpdate).CurrentValues.SetValues(newMonth);
+        }
+        public DbSet<Status> Statuses { get; set; }
+        public void MarkStatusAsModified(Status newStatus, Status statusToUpdate)
+        {
+            Entry(statusToUpdate).CurrentValues.SetValues(newStatus);
         }
     }
 }

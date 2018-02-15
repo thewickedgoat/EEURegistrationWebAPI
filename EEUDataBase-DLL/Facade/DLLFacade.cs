@@ -11,25 +11,46 @@ namespace EEUDataBase_DLL.Facade
 {
     public class DLLFacade
     {
-        private IAbsenceDB absenceDB;
+        private IAbsenceRepository absenceRepository;
 
-        private IDataBase<Department, int> departmentDB;
+        private IRepository<Department, int> departmentRepository;
 
-        private IDataBase<Employee, int> employeeDB;
+        private IRepository<Employee, int> employeeRepository;
 
-        public IAbsenceDB GetAbsenceDB(IContext context)
+        private IRepository<HolidayYear, int> holidayYearRepository;
+
+        private IRepository<Month, int> monthRepository;
+
+        private IRepository<Status, int> statusRepository;
+
+        public IAbsenceRepository GetAbsenceRepository(IContext context)
         {
-            return absenceDB ?? (absenceDB = new AbsenceDB(context));
+            return absenceRepository ?? (absenceRepository = new AbsenceRepository(context));
         }
 
-        public IDataBase<Department, int> GetDepartmentDB(IContext context)
+        public IRepository<Department, int> GetDepartmentRepository(IContext context)
         {
-            return departmentDB ?? (departmentDB = new DepartmentDB(context));
+            return departmentRepository ?? (departmentRepository = new DepartmentRepository(context));
         }
 
-        public IDataBase<Employee, int> GetEmployeeDB(IContext context)
+        public IRepository<Employee, int> GetEmployeeRepository(IContext context)
         {
-            return employeeDB ?? (employeeDB = new EmployeeDB(context));
+            return employeeRepository ?? (employeeRepository = new EmployeeRepository(context));
+        }
+
+        public IRepository<Status, int> GetStatusRepository(IContext context)
+        {
+            return statusRepository ?? (statusRepository = new StatusRepository(context));
+        }
+
+        public IRepository<HolidayYear, int> GetHolidayYearRepository(IContext context)
+        {
+            return holidayYearRepository ?? (holidayYearRepository = new HolidayYearRepository(context));
+        }
+
+        public IRepository<Month, int> GetMonthRepository(IContext context)
+        {
+            return monthRepository ?? (monthRepository = new MonthRepository(context));
         }
     }
 }

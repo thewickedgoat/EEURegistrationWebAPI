@@ -17,9 +17,9 @@ namespace EEUDataBase.Controllers
     public class AbsenceController : ApiController
     {
 
-        private IAbsenceDB absenceDB = new DLLFacade().GetAbsenceDB(new ApplicationDbContext());
+        private IAbsenceRepository absenceDB = new DLLFacade().GetAbsenceRepository(new ApplicationDbContext());
 
-        [Authorize]
+        //[Authorize]
         // GET: api/Absences
         public IQueryable<Absence> GetAbsences()
         {
@@ -35,7 +35,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET: api/Absences/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(Absence))]
         public IHttpActionResult GetAbsence(int id)
         {
@@ -46,14 +46,14 @@ namespace EEUDataBase.Controllers
             }
             return Ok(absence);
         }
-
+        //[Authorize]
         public IQueryable<Absence> GetIntervalAbsence(DateTime startDate, DateTime endDate)
         {
             return new EnumerableQuery<Absence>(absenceDB.ReadFromDateToDate(startDate, endDate));
         }
 
         // POST: api/Absence
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(Absence))]
         public IHttpActionResult PostAbsence(Absence absence)
         {
@@ -68,7 +68,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT: api/Absence/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutAbsence(int id, Absence absence)
         {
@@ -90,7 +90,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE: api/Absence/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(Absence))]
         public IHttpActionResult DeleteAbsence(int id)
         {

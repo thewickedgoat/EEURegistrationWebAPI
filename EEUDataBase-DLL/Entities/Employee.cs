@@ -9,7 +9,7 @@ namespace EEUDataBase_DLL.Entities
 {
     public enum Role
     {
-        Medarbejder, Afdelingsleder, Administrator
+        Medarbejder, Afdelingsleder, Administrator, Direktør
     }
     public class Employee: AbstractEntity
     {
@@ -20,7 +20,7 @@ namespace EEUDataBase_DLL.Entities
 
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        public List<Absence> Absences { get; set; }
+        public List<HolidayYear> HolidayYears { get; set; }
         public Role EmployeeRole { get; set; }
         public Department Department { get; set; }
     }

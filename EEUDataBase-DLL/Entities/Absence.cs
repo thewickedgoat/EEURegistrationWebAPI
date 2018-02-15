@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace EEUDataBase_DLL.Entities
 {
-    public enum Status
-    {
-        S, HS, F, HF, FF, HFF, K, B, BS, AF, A, HA, SN, GRAY
-    }
+    
     public class Absence : AbstractEntity
     {
-        public Employee Employee { get; set; }
         public DateTime Date { get; set; }
         public Status Status { get; set; }
-        public bool IsLockedByEmployee { get; set; }
-        public bool IsLockedByChief { get; set; }
-        public bool IsLockedByAdmin { get; set; }
-
+        public Month Month { get; set; }
     }
 }

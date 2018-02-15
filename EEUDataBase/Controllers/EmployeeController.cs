@@ -16,7 +16,7 @@ namespace EEUDataBase.Controllers
 {
     public class EmployeeController : ApiController
     {
-        private IDataBase<Employee, int> employeeDB = new DLLFacade().GetEmployeeDB(new ApplicationDbContext());
+        private IRepository<Employee, int> employeeDB = new DLLFacade().GetEmployeeRepository(new ApplicationDbContext());
 
         // GET api/Employees
         public IQueryable<Employee> GetEmployees()
@@ -33,7 +33,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/Employees/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetEmployee(int id)
         {
@@ -47,7 +47,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/employee
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(Employee))]
         public IHttpActionResult PostEmployee(Employee employee)
         {
@@ -61,7 +61,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT api/Employees/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutEmployee(int id, Employee employee)
         {
@@ -79,7 +79,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE api/Employees/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(int))]
         public IHttpActionResult DeleteEmployee(int id)
         {
