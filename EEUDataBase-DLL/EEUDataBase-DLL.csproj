@@ -90,6 +90,7 @@
     <Compile Include="Entities\HolidayYear.cs" />
     <Compile Include="Entities\Month.cs" />
     <Compile Include="Entities\Status.cs" />
+    <Compile Include="Entities\WorkfreeDay.cs" />
     <Compile Include="Facade\DLLFacade.cs" />
     <Compile Include="Interfaces\IAbsenceRepository.cs" />
     <Compile Include="Interfaces\IContext.cs" />
@@ -105,6 +106,7 @@
     <Compile Include="Repositories\HolidayYearRepository.cs" />
     <Compile Include="Repositories\MonthRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
+    <Compile Include="Repositories\WorkfreeDayRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

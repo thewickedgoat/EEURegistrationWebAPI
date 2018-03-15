@@ -26,7 +26,7 @@ namespace EEUDataBase.Controllers
         }
         
         /*
-         * Looks through the database to check for an employee with a matching id
+         * Looks through the database to check for a Status with a matching id
          */
         private bool StatusInDatabase(int id)
         {

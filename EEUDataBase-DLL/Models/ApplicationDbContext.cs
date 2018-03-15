@@ -33,7 +33,6 @@ namespace EEUDataBase_DLL.Models
 
             //Modelbuilder for Employees
             modelBuilder.Entity<Employee>().HasRequired(e => e.Department).WithMany(d => d.Employees);
-            
             //.WillCascadeOnDelete(false); 
 
             //Modelbuilder for HolidayYear
@@ -41,6 +40,9 @@ namespace EEUDataBase_DLL.Models
 
             //Modelbuilder for Months
             modelBuilder.Entity<Month>().HasRequired(m => m.Employee);
+
+            //Modelbuilder for WorkfreeDays
+            modelBuilder.Entity<WorkfreeDay>().HasRequired(w => w.Employee).WithMany(e => e.WorkfreeDays).WillCascadeOnDelete();
 
             base.OnModelCreating(modelBuilder);
         }
@@ -63,10 +65,9 @@ namespace EEUDataBase_DLL.Models
             Entry(employeeToUpdate).CurrentValues.SetValues(newEmployee);
         }
         public DbSet<HolidayYear> HolidayYears { get; set; }
-        public void MarkHolidayYearAsModified(HolidayYear holidayYear)
+        public void MarkHolidayYearAsModified(HolidayYear newHolidayYear, HolidayYear holidayYearToUpdate)
         {
-            Entry(holidayYear).State = EntityState.Modified;
-            //Entry(holidayYearToUpdate).CurrentValues.SetValues(newHolidayYear);
+            Entry(holidayYearToUpdate).CurrentValues.SetValues(newHolidayYear);
         }
         public DbSet<Month> Months { get; set; }
         public void MarkMonthAsModified(Month newMonth, Month monthToUpdate)
@@ -77,6 +78,11 @@ namespace EEUDataBase_DLL.Models
         public void MarkStatusAsModified(Status newStatus, Status statusToUpdate)
         {
             Entry(statusToUpdate).CurrentValues.SetValues(newStatus);
+        }
+        public DbSet<WorkfreeDay> WorkfreeDays { get; set; }
+        public void MarkWorkfreeDayAsModified(WorkfreeDay newWorkfreeDay, WorkfreeDay workfreeDayToUpdate)
+        {
+            Entry(workfreeDayToUpdate).CurrentValues.SetValues(newWorkfreeDay);
         }
     }
 }

@@ -102,8 +102,6 @@ C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUData
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\bin\Microsoft.AI.Web.xml
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\obj\Debug\EEUDataBase.dll
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase\obj\Debug\EEUDataBase.pdb
-C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.csprojResolveAssemblyReference.cache
-C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.csproj.CoreCompileInputs.cache
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\ApplicationInsights.config
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\roslyn\csc.exe
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\roslyn\csc.exe.config
@@ -205,5 +203,8 @@ C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\Microsoft.AI.D
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\Microsoft.AI.Web.xml
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.csprojResolveAssemblyReference.cache
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.csproj.CoreCompileInputs.cache
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.csproj.CopyComplete
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.dll
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.pdb

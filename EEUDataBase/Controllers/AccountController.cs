@@ -73,9 +73,32 @@ namespace EEUDataBase.Controllers
             {
                 return GetErrorResult(result);
             }
-
             return Ok(employee.Id);
         }
+        //[Authorize]
+        //[Route("Update")]
+        //public async Task<IHttpActionResult> Update(Employee employee)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    string userId = employee.Id.ToString();
+        //    ApplicationUser user = await UserManager.FindByIdAsync(userId);
+        //    if(user == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    user.PasswordHash = UserManager.PasswordHasher.HashPassword(employee.Password);
+        //    var result = await UserManager.UpdateAsync(user);
+        //    if (!result.Succeeded)
+        //    {
+        //        return GetErrorResult(result);
+        //    }
+        //    return Ok(employee);
+        //}
+
+
         private IAuthenticationManager Authentication
         {
             get { return Request.GetOwinContext().Authentication; }

@@ -16,12 +16,14 @@ namespace EEUDataBase_DLL.Interfaces
         DbSet<HolidayYear> HolidayYears { get; set; }
         DbSet<Month> Months { get; set; }
         DbSet<Status> Statuses { get; set; }
+        DbSet<WorkfreeDay> WorkfreeDays { get; set; }
         int SaveChanges();
         void MarkAbsenceAsModified(Absence newAbsence, Absence absenceToUpdate);
         void MarkDepartmentAsModified(Department department);
         void MarkEmployeeAsModified(Employee newEmployee, Employee employeeToUpdate);
-        void MarkHolidayYearAsModified(HolidayYear holidayYear);
+        void MarkHolidayYearAsModified(HolidayYear newHolidayYear, HolidayYear holidayYearToUpdate);
         void MarkMonthAsModified(Month newMonth, Month monthToUpdate);
         void MarkStatusAsModified(Status newStatus, Status statusToUpdate);
+        void MarkWorkfreeDayAsModified(WorkfreeDay newWorkfreeDay, WorkfreeDay workfreeDayToUpdate);
     }
 }

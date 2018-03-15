@@ -14,10 +14,11 @@ namespace EEUDataBase_DLL.Entities
         public List<Month> Months { get; set; }
         public Employee Employee { get; set; }
         public bool IsClosed { get; set; }
-        public int HolidayAvailable { get; set; }
-        public int HolidayFreedayAvailable { get; set; }
-        public int RemainingHoliday { get; set; }
-        public int RemainingHolidayFreedays { get; set; }
+        public double HolidayAvailable { get; set; }
+        public double HolidayFreedayAvailable { get; set; }
+        public double HolidaysUsed { get; set; }
+        public double HolidayFreedaysUsed { get; set; }
+        public double HolidayTransfered { get; set; }
 
     }
 }

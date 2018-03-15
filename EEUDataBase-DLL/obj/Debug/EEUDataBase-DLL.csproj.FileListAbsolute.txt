@@ -31,7 +31,6 @@ C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUData
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.dll
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.pdb
 C:\Users\vampr\documents\visual studio 2017\Projects\EEUDataBaseSolution\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.csprojResolveAssemblyReference.cache
-C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.csproj.CoreCompileInputs.cache
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\bin\Debug\EEUDataBase-DLL.dll.config
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\bin\Debug\EEUDataBase-DLL.dll
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\bin\Debug\EEUDataBase-DLL.pdb
@@ -62,6 +61,8 @@ C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\bin\Debug\Newt
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\bin\Debug\System.Web.Http.xml
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\bin\Debug\System.Web.Http.Owin.xml
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.csprojResolveAssemblyReference.cache
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.csproj.CoreCompileInputs.cache
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.csproj.CopyComplete
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.dll
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.pdb
-C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase-DLL\obj\Debug\EEUDataBase-DLL.csprojResolveAssemblyReference.cache

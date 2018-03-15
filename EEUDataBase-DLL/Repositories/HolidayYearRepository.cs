@@ -82,7 +82,8 @@ namespace EEUDataBase_DLL.Repositories
         {
             using(var dbContext = GetContext())
             {
-                dbContext.MarkHolidayYearAsModified(t);
+                var oldHolidayYear = dbContext.HolidayYears.FirstOrDefault(x => x.Id == t.Id);
+                dbContext.MarkHolidayYearAsModified(t, oldHolidayYear);
                 dbContext.SaveChanges();
                 return t;
             }

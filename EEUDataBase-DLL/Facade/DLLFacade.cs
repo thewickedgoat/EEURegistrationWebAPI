@@ -23,6 +23,8 @@ namespace EEUDataBase_DLL.Facade
 
         private IRepository<Status, int> statusRepository;
 
+        private IRepository<WorkfreeDay, int> workfreeDayRepository;
+
         public IAbsenceRepository GetAbsenceRepository(IContext context)
         {
             return absenceRepository ?? (absenceRepository = new AbsenceRepository(context));
@@ -51,6 +53,11 @@ namespace EEUDataBase_DLL.Facade
         public IRepository<Month, int> GetMonthRepository(IContext context)
         {
             return monthRepository ?? (monthRepository = new MonthRepository(context));
+        }
+
+        public IRepository<WorkfreeDay, int> GetWorkfreeDayRepository(IContext context)
+        {
+            return workfreeDayRepository ?? (workfreeDayRepository = new WorkfreeDayRepository(context));
         }
     }
 }

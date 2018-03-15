@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EEUDataBase_DLL.Entities;
-using EEUDataBase_DLL.Models;
 using EEUDataBase_DLL.Interfaces;
+using EEUDataBase_DLL.Models;
 
 namespace EEUDataBase_DLL.Repositories
 {
@@ -70,22 +71,23 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-                List<Department> departments = dbContext.Departments.Include("Employees").ToList();
-                foreach (var department in departments)
-                {
-                    foreach (var employee in department.Employees)
-                    {
-                        List<HolidayYear> holidayYears = dbContext.Employees.Include("HolidayYears").FirstOrDefault(x => x.Id == employee.Id).HolidayYears.ToList();
-                        if (holidayYears != null)
-                        {
-                            employee.HolidayYears = holidayYears;
-                        }
-                        else
-                        {
-                            employee.HolidayYears = new List<HolidayYear>();
-                        }
-                    }
-                }
+                List<Department> departments = dbContext.Departments
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))).ToList();
+                //foreach (var department in departments)
+                //{
+                //    foreach (var employee in department.Employees)
+                //    {
+                //        List<HolidayYear> holidayYears = dbContext.Employees.Include("HolidayYears").FirstOrDefault(x => x.Id == employee.Id).HolidayYears.ToList();
+                //        if (holidayYears != null)
+                //        {
+                //            employee.HolidayYears = holidayYears;
+                //        }
+                //        else
+                //        {
+                //            employee.HolidayYears = new List<HolidayYear>();
+                //        }
+                //    }
+                //}
                 return departments;
             }
         }
@@ -96,7 +98,8 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-                return dbContext.Departments.Include("Employees").FirstOrDefault(x => x.Id == id);
+                return dbContext.Departments
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))).FirstOrDefault(x => x.Id == id);
             }
         }
 
