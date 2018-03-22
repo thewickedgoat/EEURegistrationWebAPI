@@ -71,24 +71,29 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-                List<Department> departments = dbContext.Departments
-                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))).ToList();
+                return dbContext.Departments
+                    .Include(d => d.Employees.Select(e => e.WorkfreeDays))
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months)))
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.CurrentHolidayYear)))
+                    .ToList();
                 //foreach (var department in departments)
                 //{
                 //    foreach (var employee in department.Employees)
                 //    {
-                //        List<HolidayYear> holidayYears = dbContext.Employees.Include("HolidayYears").FirstOrDefault(x => x.Id == employee.Id).HolidayYears.ToList();
-                //        if (holidayYears != null)
+                //        foreach (var holidayYear in employee.HolidayYears)
                 //        {
-                //            employee.HolidayYears = holidayYears;
-                //        }
-                //        else
-                //        {
-                //            employee.HolidayYears = new List<HolidayYear>();
+                //            HolidayYearSpec holidayYearSpec = dbContext.HolidayYears.First
+                //            if (holidayYears != null)
+                //            {
+                //                employee.HolidayYears = holidayYears;
+                //            }
+                //            else
+                //            {
+                //                employee.HolidayYears = new List<HolidayYear>();
+                //            }
                 //        }
                 //    }
                 //}
-                return departments;
             }
         }
         /*
@@ -99,7 +104,10 @@ namespace EEUDataBase_DLL.Repositories
             using (var dbContext = GetContext())
             {
                 return dbContext.Departments
-                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))).FirstOrDefault(x => x.Id == id);
+                    .Include(d => d.Employees.Select(e => e.WorkfreeDays))
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months)))
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.CurrentHolidayYear)))
+                    .FirstOrDefault(x => x.Id == id);
             }
         }
 

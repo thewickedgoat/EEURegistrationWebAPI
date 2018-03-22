@@ -214,7 +214,7 @@ namespace EEUDataBase_DLL.Models
             Department erhvervs = new Department() { Id = 2, Name = "Erhverv", Employees = new List<Employee>() };
             Department markerting = new Department() { Id = 3, Name = "Marketing", Employees = new List<Employee>() };
             Department turisme = new Department() { Id = 4, Name = "Turisme", Employees = new List<Employee>() };
-            
+
             Status sygedag = new Status() { Id = 1, StatusCode = "S", StatusName = "Sygedag" };
             Status halvSygedag = new Status() { Id = 2, StatusCode = "HS", StatusName = "Halv Sygedag" };
             Status feriedag = new Status() { Id = 3, StatusCode = "F", StatusName = "Feriedag" };
@@ -228,7 +228,7 @@ namespace EEUDataBase_DLL.Models
             Status afspadsering = new Status() { Id = 11, StatusCode = "A", StatusName = "Afspadsering" };
             Status halvAfspadsering = new Status() { Id = 12, StatusCode = "HA", StatusName = "Halv Afspadsering" };
             Status seniordag = new Status() { Id = 13, StatusCode = "SN", StatusName = "Seniordag" };
-           
+
             Employee admin = new Employee()
             {
                 FirstName = "Admin",
@@ -288,7 +288,7 @@ namespace EEUDataBase_DLL.Models
                 Password = "123456",
                 EmployeeRole = Role.Medarbejder,
                 HolidayYears = new List<HolidayYear>(),
-               
+
             };
             Employee employee1 = new Employee()
             {
@@ -518,32 +518,53 @@ namespace EEUDataBase_DLL.Models
             employees.Add(employee16);
             employees.Add(employee17);
 
+            HolidayYearSpec currentHolidayYear = new HolidayYearSpec()
+            {
+                Name = "2017-2018",
+                StartDate = new DateTime(2017, 5, 1),
+                EndDate = new DateTime(2018, 4, 30),
+                HolidayYears = new List<HolidayYear>(),
+                PublicHolidays = new List<WorkfreeDay>()
+            };
+
             foreach (var emp in employees)
             {
                 List<Month> months = new List<Month>();
-                Month januar = new Month() { MonthDate = new DateTime(2018, 1, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
+                Month januar = new Month() { MonthDate = new DateTime(2018, 1, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month februar = new Month() { MonthDate = new DateTime(2018, 2, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month marts = new Month() { MonthDate = new DateTime(2018, 3, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month april = new Month() { MonthDate = new DateTime(2018, 4, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month maj = new Month() { MonthDate = new DateTime(2017, 5, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month juni = new Month() { MonthDate = new DateTime(2017, 6, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month juli = new Month() { MonthDate = new DateTime(2017, 7, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month august = new Month() { MonthDate = new DateTime(2017, 8, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month september = new Month() { MonthDate = new DateTime(2017, 9, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month oktober = new Month() { MonthDate = new DateTime(2017, 10, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
+                    IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
+                Month november = new Month() { MonthDate = new DateTime(2017, 11, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
                 IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month februar = new Month() { MonthDate = new DateTime(2018, 2, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month marts = new Month() { MonthDate = new DateTime(2018, 3, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month april = new Month() { MonthDate = new DateTime(2018, 4, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month maj = new Month() { MonthDate = new DateTime(2017, 5, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month juni = new Month() { MonthDate = new DateTime(2017, 6, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month juli = new Month() { MonthDate = new DateTime(2017, 7, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month august = new Month() { MonthDate = new DateTime(2017, 8, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month september = new Month() { MonthDate = new DateTime(2017, 9, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month oktober = new Month() { MonthDate = new DateTime(2017, 10, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month november = new Month() { MonthDate = new DateTime(2017, 11, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
-                IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month december = new Month() { MonthDate = new DateTime(2017, 12, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(), Employee = emp,
+                Month december = new Month() { MonthDate = new DateTime(2017, 12, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                    HolidayYear = new HolidayYear(),
                 IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
                 months.Add(januar);
                 months.Add(februar);
@@ -560,9 +581,7 @@ namespace EEUDataBase_DLL.Models
                 List<HolidayYear> holidayYears = new List<HolidayYear>();
                 HolidayYear holidayYear = new HolidayYear()
                 {
-                    Name = "2017-2018",
-                    StartDate = new DateTime(2017, 5, 1),
-                    EndDate = new DateTime(2018, 4, 30),
+                    CurrentHolidayYear = new HolidayYearSpec(),
                     Months = months,
                     Employee = emp,
                     IsClosed = false,
@@ -572,12 +591,19 @@ namespace EEUDataBase_DLL.Models
                     HolidayFreedaysUsed = 0,
                     HolidayTransfered = 0
                 };
+                foreach(var month in months)
+                {
+                    month.HolidayYear = holidayYear;
+                }
                 holidayYears.Add(holidayYear);
+                currentHolidayYear.HolidayYears.Add(holidayYear);
+                holidayYear.CurrentHolidayYear = currentHolidayYear;
                 emp.HolidayYears = holidayYears;
                 emp.WorkfreeDays = new List<WorkfreeDay>();
                 context.Employees.Add(emp);
             }
-            
+
+            context.HolidayYearsSpecs.Add(currentHolidayYear);
             context.Statuses.Add(sygedag);
             context.Statuses.Add(halvSygedag);
             context.Statuses.Add(feriedag);

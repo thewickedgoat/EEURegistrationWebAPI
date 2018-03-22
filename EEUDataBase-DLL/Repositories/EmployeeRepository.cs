@@ -51,7 +51,10 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-                var toBeDeleted = dbContext.Employees.Include(e => e.HolidayYears).FirstOrDefault(x => x.Id == id);
+                var toBeDeleted = dbContext.Employees
+                    .Include(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth)))
+                    .Include(e => e.WorkfreeDays)
+                    .FirstOrDefault(x => x.Id == id);
                 if (toBeDeleted != null)
                 {
                     dbContext.Employees.Remove(toBeDeleted);
@@ -68,8 +71,12 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-                return dbContext.Employees.Include(e => e.Department)
-                    .Include(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))
+
+                return dbContext.Employees
+                    .Include(e => e.Department)
+                    //.Include(e => e.WorkfreeDays)
+                    //.Include(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))
+                    //.Include(e => e.HolidayYears.Select(hy => hy.CurrentHolidayYear))
                     .ToList();
             }
         }
@@ -80,11 +87,13 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-                return dbContext.Employees
+                Employee employee = dbContext.Employees
                     .Include(e => e.Department)
                     .Include(e => e.WorkfreeDays)
                     .Include(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))
+                    .Include(e => e.HolidayYears.Select(h => h.CurrentHolidayYear))
                     .FirstOrDefault(x => x.Id == id);
+                return employee;
             }
         }
 

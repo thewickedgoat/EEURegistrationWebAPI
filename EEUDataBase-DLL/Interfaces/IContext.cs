@@ -14,6 +14,7 @@ namespace EEUDataBase_DLL.Interfaces
         DbSet<Department> Departments { get; set; }
         DbSet<Employee> Employees { get; set; }
         DbSet<HolidayYear> HolidayYears { get; set; }
+        DbSet<HolidayYearSpec> HolidayYearsSpecs { get; set; }
         DbSet<Month> Months { get; set; }
         DbSet<Status> Statuses { get; set; }
         DbSet<WorkfreeDay> WorkfreeDays { get; set; }
@@ -22,6 +23,7 @@ namespace EEUDataBase_DLL.Interfaces
         void MarkDepartmentAsModified(Department department);
         void MarkEmployeeAsModified(Employee newEmployee, Employee employeeToUpdate);
         void MarkHolidayYearAsModified(HolidayYear newHolidayYear, HolidayYear holidayYearToUpdate);
+        void MarkHolidayYearSpecAsModified(HolidayYearSpec newHolidayYearSpec, HolidayYearSpec holidayYearSpecToUpdate);
         void MarkMonthAsModified(Month newMonth, Month monthToUpdate);
         void MarkStatusAsModified(Status newStatus, Status statusToUpdate);
         void MarkWorkfreeDayAsModified(WorkfreeDay newWorkfreeDay, WorkfreeDay workfreeDayToUpdate);

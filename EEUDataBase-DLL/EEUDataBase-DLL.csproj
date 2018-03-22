@@ -88,6 +88,7 @@
     <Compile Include="Entities\Department.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\HolidayYear.cs" />
+    <Compile Include="Entities\HolidayYearSpec.cs" />
     <Compile Include="Entities\Month.cs" />
     <Compile Include="Entities\Status.cs" />
     <Compile Include="Entities\WorkfreeDay.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Repositories\DepartmentRepository.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\HolidayYearRepository.cs" />
+    <Compile Include="Repositories\HolidayYearSpecRepository.cs" />
     <Compile Include="Repositories\MonthRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\WorkfreeDayRepository.cs" />

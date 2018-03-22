@@ -33,7 +33,7 @@ namespace EEUDataBase_DLL.Repositories
         {
             using(var dbContext = GetContext())
             {
-                t.Employee = dbContext.Employees.FirstOrDefault(x => x.Id == t.Employee.Id);
+                t.HolidayYear = dbContext.HolidayYears.FirstOrDefault(x => x.Id == t.HolidayYear.Id);
                 dbContext.Months.Add(t);
                 dbContext.SaveChanges();
                 return t;
@@ -61,7 +61,7 @@ namespace EEUDataBase_DLL.Repositories
             using(var dbContext = GetContext())
             {
                 return dbContext.Months
-                    .Include("Employee")
+                    .Include("HolidayYear")
                     .Include(m => m.AbsencesInMonth.Select(a => a.Status))
                     .ToList();
             }
@@ -72,7 +72,7 @@ namespace EEUDataBase_DLL.Repositories
             using(var dbContext = GetContext())
             {
                 return dbContext.Months
-                    .Include("Employee")
+                    .Include("HolidayYear")
                     .Include(m => m.AbsencesInMonth.Select(a => a.Status))
                     .Include(m => m.AbsencesInMonth.Select(a => a.Month))
                     .FirstOrDefault(m => m.Id == id);
@@ -83,7 +83,10 @@ namespace EEUDataBase_DLL.Repositories
         {
             using(var dbContext = GetContext())
             {
-                var oldMonth = dbContext.Months.Include("Employee").Include(m => m.AbsencesInMonth.Select(a => a.Status)).FirstOrDefault(m => m.Id == t.Id);
+                var oldMonth = dbContext.Months
+                    .Include("HolidayYear")
+                    .Include(m => m.AbsencesInMonth.Select(a => a.Status))
+                    .FirstOrDefault(m => m.Id == t.Id);
                 dbContext.MarkMonthAsModified(t, oldMonth);
                 dbContext.SaveChanges();
                 return t;

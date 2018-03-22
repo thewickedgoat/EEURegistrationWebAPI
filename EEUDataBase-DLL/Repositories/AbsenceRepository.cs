@@ -114,7 +114,7 @@ namespace EEUDataBase_DLL.Repositories
             using (var dbContext = GetContext())
             {
                 t.Status = dbContext.Statuses.FirstOrDefault(x => x.Id == t.Status.Id);
-                t.Month = dbContext.Months.Include(m => m.Employee).FirstOrDefault(x => x.Id == t.Month.Id);
+                t.Month = dbContext.Months.Include(m => m.HolidayYear).FirstOrDefault(x => x.Id == t.Month.Id);
                 var oldAbsence = dbContext.Absences.Include("Status").Include("Month").FirstOrDefault(x => x.Id == t.Id);
                 oldAbsence.Status = t.Status;
                 dbContext.MarkAbsenceAsModified(t, oldAbsence);

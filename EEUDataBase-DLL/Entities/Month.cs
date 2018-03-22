@@ -10,7 +10,7 @@ namespace EEUDataBase_DLL.Entities
     {
         public DateTime MonthDate { get; set; }
         public List<Absence> AbsencesInMonth { get; set; }
-        public Employee Employee { get; set; }
+        public HolidayYear HolidayYear { get; set; }
         public bool IsLockedByEmployee { get; set; }
         public bool IsLockedByChief { get; set; }
         public bool IsLockedByCEO { get; set; }

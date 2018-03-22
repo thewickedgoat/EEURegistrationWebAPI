@@ -24,5 +24,6 @@ namespace EEUDataBase_DLL.Entities
         public Role EmployeeRole { get; set; }
         public Department Department { get; set; }
         public List<WorkfreeDay> WorkfreeDays { get; set; }
+        public string Note { get; set; }
     }
 }

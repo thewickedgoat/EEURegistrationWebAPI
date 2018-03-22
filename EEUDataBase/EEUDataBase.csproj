@@ -228,6 +228,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HolidayYearController.cs" />
+    <Compile Include="Controllers\HolidayYearSpecController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
     <Compile Include="Controllers\StatusController.cs" />

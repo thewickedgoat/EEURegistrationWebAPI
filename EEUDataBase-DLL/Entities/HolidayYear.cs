@@ -8,9 +8,7 @@ namespace EEUDataBase_DLL.Entities
 {
     public class HolidayYear : AbstractEntity
     {
-        public string Name { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public HolidayYearSpec CurrentHolidayYear { get; set; }
         public List<Month> Months { get; set; }
         public Employee Employee { get; set; }
         public bool IsClosed { get; set; }
@@ -19,6 +17,5 @@ namespace EEUDataBase_DLL.Entities
         public double HolidaysUsed { get; set; }
         public double HolidayFreedaysUsed { get; set; }
         public double HolidayTransfered { get; set; }
-
     }
 }

@@ -17,6 +17,8 @@ namespace EEUDataBase_DLL.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            this.Configuration.ProxyCreationEnabled = false;
+            this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer(new ApplicationDBInitializer());
         }
 
@@ -36,10 +38,11 @@ namespace EEUDataBase_DLL.Models
             //.WillCascadeOnDelete(false); 
 
             //Modelbuilder for HolidayYear
-            modelBuilder.Entity<HolidayYear>().HasRequired(h => h.Employee).WithMany(e => e.HolidayYears).WillCascadeOnDelete(); 
+            modelBuilder.Entity<HolidayYear>().HasRequired(h => h.Employee).WithMany(e => e.HolidayYears).WillCascadeOnDelete();
+            modelBuilder.Entity<HolidayYear>().HasRequired(h => h.CurrentHolidayYear).WithMany(c => c.HolidayYears);
 
             //Modelbuilder for Months
-            modelBuilder.Entity<Month>().HasRequired(m => m.Employee);
+            modelBuilder.Entity<Month>().HasRequired(m => m.HolidayYear).WithMany(h => h.Months);
 
             //Modelbuilder for WorkfreeDays
             modelBuilder.Entity<WorkfreeDay>().HasRequired(w => w.Employee).WithMany(e => e.WorkfreeDays).WillCascadeOnDelete();
@@ -68,6 +71,11 @@ namespace EEUDataBase_DLL.Models
         public void MarkHolidayYearAsModified(HolidayYear newHolidayYear, HolidayYear holidayYearToUpdate)
         {
             Entry(holidayYearToUpdate).CurrentValues.SetValues(newHolidayYear);
+        }
+        public DbSet<HolidayYearSpec> HolidayYearsSpecs { get; set; }
+        public void MarkHolidayYearSpecAsModified(HolidayYearSpec newHolidayYearSpec, HolidayYearSpec holidayYearSpecToUpdate)
+        {
+            Entry(holidayYearSpecToUpdate).CurrentValues.SetValues(newHolidayYearSpec);
         }
         public DbSet<Month> Months { get; set; }
         public void MarkMonthAsModified(Month newMonth, Month monthToUpdate)
