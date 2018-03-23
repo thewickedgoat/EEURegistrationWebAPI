@@ -41,6 +41,9 @@ namespace EEUDataBase_DLL.Models
             modelBuilder.Entity<HolidayYear>().HasRequired(h => h.Employee).WithMany(e => e.HolidayYears).WillCascadeOnDelete();
             modelBuilder.Entity<HolidayYear>().HasRequired(h => h.CurrentHolidayYear).WithMany(c => c.HolidayYears);
 
+            //Modelbuilder for HolidayYearSpec
+            modelBuilder.Entity<HolidayYearSpec>().HasMany(h => h.PublicHolidays);
+
             //Modelbuilder for Months
             modelBuilder.Entity<Month>().HasRequired(m => m.HolidayYear).WithMany(h => h.Months);
 

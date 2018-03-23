@@ -60,8 +60,9 @@ namespace EEUDataBase_DLL.Repositories
             using (var dbContext = GetContext())
             {
                 return dbContext.HolidayYearsSpecs
-                    //.Include(h => h.PublicHolidays)
+                    .Include(h => h.PublicHolidays)
                     .Include(h => h.HolidayYears)
+                    .AsNoTracking()
                     .ToList();
             }
         }

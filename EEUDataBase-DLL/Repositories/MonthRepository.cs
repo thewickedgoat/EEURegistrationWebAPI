@@ -63,6 +63,7 @@ namespace EEUDataBase_DLL.Repositories
                 return dbContext.Months
                     .Include("HolidayYear")
                     .Include(m => m.AbsencesInMonth.Select(a => a.Status))
+                    .AsNoTracking()
                     .ToList();
             }
         }

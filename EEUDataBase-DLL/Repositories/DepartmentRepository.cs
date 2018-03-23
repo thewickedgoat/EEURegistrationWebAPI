@@ -73,8 +73,9 @@ namespace EEUDataBase_DLL.Repositories
             {
                 return dbContext.Departments
                     .Include(d => d.Employees.Select(e => e.WorkfreeDays))
-                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months)))
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth))))
                     .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.CurrentHolidayYear)))
+                    .AsNoTracking()
                     .ToList();
                 //foreach (var department in departments)
                 //{
@@ -103,6 +104,7 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
+                
                 return dbContext.Departments
                     .Include(d => d.Employees.Select(e => e.WorkfreeDays))
                     .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months)))

@@ -71,12 +71,12 @@ namespace EEUDataBase_DLL.Repositories
         {
             using (var dbContext = GetContext())
             {
-
                 return dbContext.Employees
                     .Include(e => e.Department)
-                    //.Include(e => e.WorkfreeDays)
-                    //.Include(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))
-                    //.Include(e => e.HolidayYears.Select(hy => hy.CurrentHolidayYear))
+                    .Include(e => e.WorkfreeDays)
+                    .Include(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status))))
+                    .Include(e => e.HolidayYears.Select(hy => hy.CurrentHolidayYear))
+                    .AsNoTracking()
                     .ToList();
             }
         }
