@@ -42,7 +42,7 @@ namespace EEUDataBase_DLL.Models
             modelBuilder.Entity<HolidayYear>().HasRequired(h => h.CurrentHolidayYear).WithMany(c => c.HolidayYears);
 
             //Modelbuilder for HolidayYearSpec
-            modelBuilder.Entity<HolidayYearSpec>().HasMany(h => h.PublicHolidays);
+            modelBuilder.Entity<PublicHoliday>().HasRequired(p => p.HolidayYearSpec).WithMany(h => h.PublicHolidays);
 
             //Modelbuilder for Months
             modelBuilder.Entity<Month>().HasRequired(m => m.HolidayYear).WithMany(h => h.Months);
@@ -84,6 +84,11 @@ namespace EEUDataBase_DLL.Models
         public void MarkMonthAsModified(Month newMonth, Month monthToUpdate)
         {
             Entry(monthToUpdate).CurrentValues.SetValues(newMonth);
+        }
+        public DbSet<PublicHoliday> PublicHolidays { get; set; }
+        public void MarkPublicHolidayAsModified(PublicHoliday newPublicHOliday, PublicHoliday publicHolidayToUpdate)
+        {
+            Entry(publicHolidayToUpdate).CurrentValues.SetValues(newPublicHOliday);
         }
         public DbSet<Status> Statuses { get; set; }
         public void MarkStatusAsModified(Status newStatus, Status statusToUpdate)

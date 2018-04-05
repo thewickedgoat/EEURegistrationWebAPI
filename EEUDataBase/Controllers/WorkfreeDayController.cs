@@ -56,6 +56,7 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest(ModelState);
             }
+            workfreeDay.Date = workfreeDay.Date.AddHours(4);
             workfreeDayRepository.Create(workfreeDay);
 
             return CreatedAtRoute("DefaultApi", new { id = workfreeDay.Id }, workfreeDay);
@@ -74,6 +75,7 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest();
             }
+            workfreeDay.Date = workfreeDay.Date.AddHours(4);
             workfreeDayRepository.Update(workfreeDay);
 
             return StatusCode(HttpStatusCode.NoContent);

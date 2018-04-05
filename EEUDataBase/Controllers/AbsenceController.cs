@@ -17,13 +17,13 @@ namespace EEUDataBase.Controllers
     public class AbsenceController : ApiController
     {
 
-        private IAbsenceRepository absenceDB = new DLLFacade().GetAbsenceRepository(new ApplicationDbContext());
+        private IAbsenceRepository absenceRepository = new DLLFacade().GetAbsenceRepository(new ApplicationDbContext());
 
         //[Authorize]
         // GET: api/Absences
         public IQueryable<Absence> GetAbsences()
         {
-            return new EnumerableQuery<Absence>(absenceDB.ReadAll());
+            return new EnumerableQuery<Absence>(absenceRepository.ReadAll());
         }
 
         /*
@@ -31,7 +31,7 @@ namespace EEUDataBase.Controllers
          */
         private bool AbsenceInDatabase(int id)
         {
-            return absenceDB.ReadById(id) != null;
+            return absenceRepository.ReadById(id) != null;
         }
 
         // GET: api/Absences/5
@@ -39,7 +39,7 @@ namespace EEUDataBase.Controllers
         [ResponseType(typeof(Absence))]
         public IHttpActionResult GetAbsence(int id)
         {
-            Absence absence = absenceDB.ReadById(id);
+            Absence absence = absenceRepository.ReadById(id);
             if(absence == null)
             {
                 return NotFound();
@@ -49,7 +49,7 @@ namespace EEUDataBase.Controllers
         //[Authorize]
         public IQueryable<Absence> GetIntervalAbsence(DateTime startDate, DateTime endDate)
         {
-            return new EnumerableQuery<Absence>(absenceDB.ReadFromDateToDate(startDate, endDate));
+            return new EnumerableQuery<Absence>(absenceRepository.ReadFromDateToDate(startDate, endDate));
         }
 
         // POST: api/Absence
@@ -62,7 +62,7 @@ namespace EEUDataBase.Controllers
                 return BadRequest(ModelState);
             }
             absence.Date = absence.Date.AddHours(4);
-            absenceDB.Create(absence);
+            absenceRepository.Create(absence);
 
             return CreatedAtRoute("DefaultAPI", new { id = absence.Id }, absence);
         }
@@ -84,7 +84,7 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest();
             }
-            absenceDB.Update(absence);
+            absenceRepository.Update(absence);
 
             return StatusCode(HttpStatusCode.NoContent);
         }
@@ -99,7 +99,7 @@ namespace EEUDataBase.Controllers
                 return NotFound();
             }
 
-            absenceDB.Delete(id);
+            absenceRepository.Delete(id);
 
             return Ok(id);
         }

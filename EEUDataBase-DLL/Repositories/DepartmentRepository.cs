@@ -73,7 +73,7 @@ namespace EEUDataBase_DLL.Repositories
             {
                 return dbContext.Departments
                     .Include(d => d.Employees.Select(e => e.WorkfreeDays))
-                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth))))
+                    .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.Months.Select(m => m.AbsencesInMonth.Select(a => a.Status)))))
                     .Include(d => d.Employees.Select(e => e.HolidayYears.Select(h => h.CurrentHolidayYear)))
                     .AsNoTracking()
                     .ToList();

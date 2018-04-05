@@ -231,6 +231,7 @@
     <Compile Include="Controllers\HolidayYearSpecController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MonthController.cs" />
+    <Compile Include="Controllers\PublicHolidayController.cs" />
     <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\WorkfreeDayController.cs" />
     <Compile Include="Global.asax.cs">

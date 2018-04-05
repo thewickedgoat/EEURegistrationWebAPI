@@ -61,7 +61,7 @@ namespace EEUDataBase_DLL.Repositories
             {
                 return dbContext.HolidayYearsSpecs
                     .Include(h => h.PublicHolidays)
-                    .Include(h => h.HolidayYears)
+                    .Include(h => h.HolidayYears.Select(hy => hy.Employee))
                     .AsNoTracking()
                     .ToList();
             }
@@ -73,7 +73,7 @@ namespace EEUDataBase_DLL.Repositories
             {
                 return dbContext.HolidayYearsSpecs
                     .Include(h => h.PublicHolidays)
-                    .Include(h => h.HolidayYears)
+                    .Include(h => h.HolidayYears.Select(hy => hy.Employee))
                     .FirstOrDefault(h => h.Id == id);
             }
         }

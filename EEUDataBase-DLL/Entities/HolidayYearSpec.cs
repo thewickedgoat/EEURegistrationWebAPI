@@ -13,7 +13,7 @@ namespace EEUDataBase_DLL.Entities
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public List<HolidayYear> HolidayYears { get; set; }
-        public List<WorkfreeDay> PublicHolidays { get; set; }
+        public List<PublicHoliday> PublicHolidays { get; set; }
 
     }
 }

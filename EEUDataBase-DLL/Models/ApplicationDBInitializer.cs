@@ -524,7 +524,7 @@ namespace EEUDataBase_DLL.Models
                 StartDate = new DateTime(2017, 5, 1),
                 EndDate = new DateTime(2018, 4, 30),
                 HolidayYears = new List<HolidayYear>(),
-                PublicHolidays = new List<WorkfreeDay>()
+                PublicHolidays = new List<PublicHoliday>()
             };
 
             foreach (var emp in employees)
@@ -589,7 +589,7 @@ namespace EEUDataBase_DLL.Models
                     HolidayFreedayAvailable = 5,
                     HolidaysUsed = 0,
                     HolidayFreedaysUsed = 0,
-                    HolidayTransfered = 0
+                    HolidayTransfered = 5
                 };
                 foreach(var month in months)
                 {

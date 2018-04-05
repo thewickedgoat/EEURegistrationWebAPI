@@ -21,7 +21,9 @@ namespace EEUDataBase_DLL.Facade
 
         private IRepository<HolidayYearSpec, int> holidayYearSpecRepository;
 
-        private IRepository<Month, int> monthRepository;
+        private IRepository<PublicHoliday, int> publicHolidayRepository;
+
+        private IMonthRepository monthRepository;
 
         private IRepository<Status, int> statusRepository;
 
@@ -57,7 +59,12 @@ namespace EEUDataBase_DLL.Facade
             return holidayYearSpecRepository ?? (holidayYearSpecRepository = new HolidayYearSpecRepository(context));
         }
 
-        public IRepository<Month, int> GetMonthRepository(IContext context)
+        public IRepository<PublicHoliday, int> GetPublicHolidayRepository(IContext context)
+        {
+            return publicHolidayRepository ?? (publicHolidayRepository = new PublicHolidayRepository(context));
+        }
+
+        public IMonthRepository GetMonthRepository(IContext context)
         {
             return monthRepository ?? (monthRepository = new MonthRepository(context));
         }

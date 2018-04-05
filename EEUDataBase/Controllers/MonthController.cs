@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -13,7 +14,7 @@ namespace EEUDataBase.Controllers
 {
     public class MonthController : ApiController
     {
-        private IRepository<Month, int> monthRepository = new DLLFacade().GetMonthRepository(new ApplicationDbContext());
+        private IMonthRepository monthRepository = new DLLFacade().GetMonthRepository(new ApplicationDbContext());
 
         //[Authorize]
         // GET: api/Months
@@ -57,6 +58,19 @@ namespace EEUDataBase.Controllers
 
             return CreatedAtRoute("DefaultAPI", new { id = month.Id }, month);
         }
+
+        //[Route("List")]
+        //[ResponseType(typeof(List<Month>))]
+        //public IHttpActionResult CreateList(List<Month> months)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    monthRepository.CreateMonths(months);
+
+        //    return Ok(months);
+        //}
 
         // PUT: api/Month/5
         //[Authorize]

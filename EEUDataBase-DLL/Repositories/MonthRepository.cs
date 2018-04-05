@@ -10,7 +10,7 @@ using EEUDataBase_DLL.Models;
 
 namespace EEUDataBase_DLL.Repositories
 {
-    class MonthRepository : IRepository<Month, int>
+    class MonthRepository : IMonthRepository
     {
         private IContext context;
 
@@ -35,6 +35,20 @@ namespace EEUDataBase_DLL.Repositories
             {
                 t.HolidayYear = dbContext.HolidayYears.FirstOrDefault(x => x.Id == t.HolidayYear.Id);
                 dbContext.Months.Add(t);
+                dbContext.SaveChanges();
+                return t;
+            }
+        }
+
+        public List<Month> CreateMonths(List<Month> t)
+        {
+            using(var dbContext = GetContext())
+            {
+                foreach(var month in t)
+                {
+                    month.HolidayYear = dbContext.HolidayYears.FirstOrDefault(x => x.Id == month.HolidayYear.Id);
+                    dbContext.Months.Add(month);
+                }
                 dbContext.SaveChanges();
                 return t;
             }

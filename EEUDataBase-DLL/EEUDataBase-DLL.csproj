@@ -90,11 +90,13 @@
     <Compile Include="Entities\HolidayYear.cs" />
     <Compile Include="Entities\HolidayYearSpec.cs" />
     <Compile Include="Entities\Month.cs" />
+    <Compile Include="Entities\PublicHoliday.cs" />
     <Compile Include="Entities\Status.cs" />
     <Compile Include="Entities\WorkfreeDay.cs" />
     <Compile Include="Facade\DLLFacade.cs" />
     <Compile Include="Interfaces\IAbsenceRepository.cs" />
     <Compile Include="Interfaces\IContext.cs" />
+    <Compile Include="Interfaces\IMonthRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationDBInitializer.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Repositories\HolidayYearRepository.cs" />
     <Compile Include="Repositories\HolidayYearSpecRepository.cs" />
     <Compile Include="Repositories\MonthRepository.cs" />
+    <Compile Include="Repositories\PublicHolidayRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\WorkfreeDayRepository.cs" />
   </ItemGroup>
