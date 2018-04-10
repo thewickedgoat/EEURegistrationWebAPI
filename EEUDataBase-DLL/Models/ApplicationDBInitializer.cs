@@ -32,7 +32,7 @@ namespace EEUDataBase_DLL.Models
                 };
                 var role4 = new IdentityRole()
                 {
-                    Name = "Direktør"
+                    Name = "CEO"
                 };
 
                 roleManager.Create(role1);
@@ -59,7 +59,7 @@ namespace EEUDataBase_DLL.Models
                     UserName = "tln"
                 };
                 userManager.Create(user1, "123456");
-                userManager.AddToRole(user1.Id, "Direktør");
+                userManager.AddToRole(user1.Id, "CEO");
                 var user2 = new ApplicationUser
                 {
                     Email = "bbj@eeu.dk",
@@ -246,7 +246,7 @@ namespace EEUDataBase_DLL.Models
                 UserName = "tln",
                 Email = "tln@eeu.dk",
                 Password = "123456",
-                EmployeeRole = Role.Direktør,
+                EmployeeRole = Role.CEO,
                 HolidayYears = new List<HolidayYear>(),
             };
             Employee chief2 = new Employee()

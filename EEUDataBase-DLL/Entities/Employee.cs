@@ -9,7 +9,7 @@ namespace EEUDataBase_DLL.Entities
 {
     public enum Role
     {
-        Medarbejder, Afdelingsleder, Administrator, Direktør
+        Medarbejder, Afdelingsleder, Administrator, CEO
     }
     public class Employee: AbstractEntity
     {
