@@ -18,7 +18,7 @@ namespace EEUDataBase.Controllers
 
         // GET api/Departments>
         //[Authorize]
-        public IQueryable<Department> GetDepartments()
+        public IQueryable<Department> GetAll()
         {
             return new EnumerableQuery<Department>(departmentDB.ReadAll());
         }
@@ -34,7 +34,7 @@ namespace EEUDataBase.Controllers
         // GET api/Departments/5
         //[Authorize]
         [ResponseType(typeof(Department))]
-        public IHttpActionResult GetDepartment(int id)
+        public IHttpActionResult GetById(int id)
         {
             Department department = departmentDB.ReadById(id);
             if(department == null)
@@ -47,7 +47,7 @@ namespace EEUDataBase.Controllers
         // POST api/Departments
         //[Authorize(Roles = "Administrator")]
         [ResponseType(typeof(Department))]
-        public IHttpActionResult PostDepartment(Department department)
+        public IHttpActionResult Post(Department department)
         {
             if(!ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace EEUDataBase.Controllers
         // PUT api/Departments/5
         //[Authorize(Roles = "Administrator")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutDepartment(int id, Department department)
+        public IHttpActionResult Put(int id, Department department)
         {
             if(!ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace EEUDataBase.Controllers
         // DELETE api/Departments/5
         //[Authorize(Roles = "Administrator")]
         [ResponseType(typeof(Department))]
-        public IHttpActionResult DeleteDepartment(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!DepartmentInDatabase(id))
             {

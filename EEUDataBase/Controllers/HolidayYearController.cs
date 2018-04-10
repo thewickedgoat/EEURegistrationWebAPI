@@ -13,11 +13,11 @@ namespace EEUDataBase.Controllers
 {
     public class HolidayYearController : ApiController
     {
-        private IRepository<HolidayYear, int> holidayYearRepository = new DLLFacade().GetHolidayYearRepository(new ApplicationDbContext());
+        private IHolidayYearRepository holidayYearRepository = new DLLFacade().GetHolidayYearRepository(new ApplicationDbContext());
 
         //[Authorize]
         // GET: api/Months
-        public IQueryable<HolidayYear> GetHolidayYears()
+        public IQueryable<HolidayYear> GetAll()
         {
             return new EnumerableQuery<HolidayYear>(holidayYearRepository.ReadAll());
         }
@@ -33,7 +33,7 @@ namespace EEUDataBase.Controllers
         // GET: api/HolidayYear/5
         //[Authorize]
         [ResponseType(typeof(HolidayYear))]
-        public IHttpActionResult GetHolidayYear(int id)
+        public IHttpActionResult GetById(int id)
         {
             HolidayYear holidayYear = holidayYearRepository.ReadById(id);
             if (holidayYear == null)
@@ -46,7 +46,7 @@ namespace EEUDataBase.Controllers
         // POST: api/HolidayYear
         //[Authorize]
         [ResponseType(typeof(HolidayYear))]
-        public IHttpActionResult PostHolidayYear(HolidayYear holidayYear)
+        public IHttpActionResult Post(HolidayYear holidayYear)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace EEUDataBase.Controllers
         // PUT: api/HolidayYear/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutHolidayYear(int id, HolidayYear holidayYear)
+        public IHttpActionResult Put(int id, HolidayYear holidayYear)
         {
             if (!ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace EEUDataBase.Controllers
         // DELETE: api/HolidayYear/5
         //[Authorize]
         [ResponseType(typeof(HolidayYear))]
-        public IHttpActionResult DeleteHolidayYear(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!HolidayYearInDatabase(id))
             {

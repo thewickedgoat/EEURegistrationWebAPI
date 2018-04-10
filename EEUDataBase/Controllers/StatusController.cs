@@ -20,7 +20,7 @@ namespace EEUDataBase.Controllers
 
         // GET api/Status
         //[Authorize]
-        public IQueryable<Status> GetStatuses()
+        public IQueryable<Status> GetAll()
         {
             return new EnumerableQuery<Status>(statusRepository.ReadAll());
         }
@@ -36,7 +36,7 @@ namespace EEUDataBase.Controllers
         // GET api/Status/5
         //[Authorize]
         [ResponseType(typeof(Status))]
-        public IHttpActionResult GetStatus(int id)
+        public IHttpActionResult GetById(int id)
         {
             Status status = statusRepository.ReadById(id);
             if (status == null)
@@ -50,7 +50,7 @@ namespace EEUDataBase.Controllers
         // POST api/status
         //[Authorize]
         [ResponseType(typeof(Status))]
-        public IHttpActionResult PostStatus(Status status)
+        public IHttpActionResult Post(Status status)
         {
             if (!ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace EEUDataBase.Controllers
         // PUT api/Status/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutStatus(int id, Status status)
+        public IHttpActionResult Put(int id, Status status)
         {
             if (!ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace EEUDataBase.Controllers
         // DELETE api/Status/5
         //[Authorize]
         [ResponseType(typeof(int))]
-        public IHttpActionResult DeleteStatus(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!StatusInDatabase(id))
             {

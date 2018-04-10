@@ -19,7 +19,7 @@ namespace EEUDataBase.Controllers
         private IRepository<Employee, int> employeeDB = new DLLFacade().GetEmployeeRepository(new ApplicationDbContext());
 
         // GET api/Employees
-        public IQueryable<Employee> GetEmployees()
+        public IQueryable<Employee> GetAll()
         {
             return new EnumerableQuery<Employee>(employeeDB.ReadAll());
         }
@@ -35,7 +35,7 @@ namespace EEUDataBase.Controllers
         // GET api/Employees/5
         //[Authorize]
         [ResponseType(typeof(Employee))]
-        public IHttpActionResult GetEmployee(int id)
+        public IHttpActionResult GetById(int id)
         {
             Employee employee = employeeDB.ReadById(id);
             if (employee == null)
@@ -49,7 +49,7 @@ namespace EEUDataBase.Controllers
         // POST api/employee
         //[Authorize]
         [ResponseType(typeof(Employee))]
-        public IHttpActionResult PostEmployee(Employee employee)
+        public IHttpActionResult Post(Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -63,7 +63,7 @@ namespace EEUDataBase.Controllers
         // PUT api/Employees/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutEmployee(int id, Employee employee)
+        public IHttpActionResult Put(int id, Employee employee)
         {
             if (!ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace EEUDataBase.Controllers
         // DELETE api/Employees/5
         //[Authorize]
         [ResponseType(typeof(int))]
-        public IHttpActionResult DeleteEmployee(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!EmployeeInDatabase(id))
             {

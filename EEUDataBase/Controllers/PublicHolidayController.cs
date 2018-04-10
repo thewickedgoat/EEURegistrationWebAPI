@@ -19,7 +19,7 @@ namespace EEUDataBase.Controllers
 
         // GET api/PublicHoliday
         //[Authorize]
-        public IQueryable<PublicHoliday> GetPublicHoliday()
+        public IQueryable<PublicHoliday> GetAll()
         {
             return new EnumerableQuery<PublicHoliday>(publicHolidayRepository.ReadAll());
         }
@@ -35,7 +35,7 @@ namespace EEUDataBase.Controllers
         // GET api/PublicHoliday/5
         //[Authorize]
         [ResponseType(typeof(PublicHoliday))]
-        public IHttpActionResult GetPublicHoliday(int id)
+        public IHttpActionResult GetById(int id)
         {
             PublicHoliday publicHoliday = publicHolidayRepository.ReadById(id);
             if (publicHoliday == null)
@@ -49,7 +49,7 @@ namespace EEUDataBase.Controllers
         // POST api/PublicHoliday
         //[Authorize]
         [ResponseType(typeof(PublicHoliday))]
-        public IHttpActionResult PostPublicHoliday(PublicHoliday publicHoliday)
+        public IHttpActionResult Post(PublicHoliday publicHoliday)
         {
             if (!ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace EEUDataBase.Controllers
         // PUT api/PublicHoliday/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPublicHoliday(int id, PublicHoliday publicHoliday)
+        public IHttpActionResult Put(int id, PublicHoliday publicHoliday)
         {
             if (!ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace EEUDataBase.Controllers
         // DELETE api/PublicHoliday/5
         //[Authorize]
         [ResponseType(typeof(int))]
-        public IHttpActionResult DeletePublicHoliday(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!PublicHolidayInDatabase(id))
             {

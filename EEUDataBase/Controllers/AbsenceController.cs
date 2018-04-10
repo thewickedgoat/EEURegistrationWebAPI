@@ -21,7 +21,7 @@ namespace EEUDataBase.Controllers
 
         //[Authorize]
         // GET: api/Absences
-        public IQueryable<Absence> GetAbsences()
+        public IQueryable<Absence> GetAll()
         {
             return new EnumerableQuery<Absence>(absenceRepository.ReadAll());
         }
@@ -37,7 +37,7 @@ namespace EEUDataBase.Controllers
         // GET: api/Absences/5
         //[Authorize]
         [ResponseType(typeof(Absence))]
-        public IHttpActionResult GetAbsence(int id)
+        public IHttpActionResult GetById(int id)
         {
             Absence absence = absenceRepository.ReadById(id);
             if(absence == null)
@@ -47,7 +47,7 @@ namespace EEUDataBase.Controllers
             return Ok(absence);
         }
         //[Authorize]
-        public IQueryable<Absence> GetIntervalAbsence(DateTime startDate, DateTime endDate)
+        public IQueryable<Absence> GetInterval(DateTime startDate, DateTime endDate)
         {
             return new EnumerableQuery<Absence>(absenceRepository.ReadFromDateToDate(startDate, endDate));
         }
@@ -55,7 +55,7 @@ namespace EEUDataBase.Controllers
         // POST: api/Absence
         //[Authorize]
         [ResponseType(typeof(Absence))]
-        public IHttpActionResult PostAbsence(Absence absence)
+        public IHttpActionResult Post(Absence absence)
         {
             if(!ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace EEUDataBase.Controllers
         // PUT: api/Absence/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAbsence(int id, Absence absence)
+        public IHttpActionResult Put(int id, Absence absence)
         {
             if (!ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace EEUDataBase.Controllers
         // DELETE: api/Absence/5
         //[Authorize]
         [ResponseType(typeof(Absence))]
-        public IHttpActionResult DeleteAbsence(int id)
+        public IHttpActionResult Delete(int id)
         {
             if(!AbsenceInDatabase(id))
             {

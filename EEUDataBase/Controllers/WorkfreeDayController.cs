@@ -16,11 +16,11 @@ namespace EEUDataBase.Controllers
 {
     public class WorkfreeDayController : ApiController
     {
-        private IRepository<WorkfreeDay, int> workfreeDayRepository = new DLLFacade().GetWorkfreeDayRepository(new ApplicationDbContext());
+        private IWorkfreeDayRepository workfreeDayRepository = new DLLFacade().GetWorkfreeDayRepository(new ApplicationDbContext());
 
         // GET api/WorkfreeDay
         //[Authorize]
-        public IQueryable<WorkfreeDay> GetWorkfreeDays()
+        public IQueryable<WorkfreeDay> GetAll()
         {
             return new EnumerableQuery<WorkfreeDay>(workfreeDayRepository.ReadAll());
         }
@@ -36,7 +36,7 @@ namespace EEUDataBase.Controllers
         // GET api/WorkfreeDay/5
         //[Authorize]
         [ResponseType(typeof(WorkfreeDay))]
-        public IHttpActionResult GetWorkfreeDay(int id)
+        public IHttpActionResult GetById(int id)
         {
             WorkfreeDay workfreeDay = workfreeDayRepository.ReadById(id);
             if (workfreeDay == null)
@@ -50,7 +50,7 @@ namespace EEUDataBase.Controllers
         // POST api/WorkfreeDay
         //[Authorize]
         [ResponseType(typeof(WorkfreeDay))]
-        public IHttpActionResult PostWorkfreeDay(WorkfreeDay workfreeDay)
+        public IHttpActionResult Post(WorkfreeDay workfreeDay)
         {
             if (!ModelState.IsValid)
             {
@@ -62,10 +62,22 @@ namespace EEUDataBase.Controllers
             return CreatedAtRoute("DefaultApi", new { id = workfreeDay.Id }, workfreeDay);
         }
 
+        [ResponseType(typeof(List<WorkfreeDay>))]
+        public IHttpActionResult PostList(List<WorkfreeDay> workfreeDays)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            workfreeDayRepository.CreateWorkfreeDays(workfreeDays);
+
+            return Ok(workfreeDays);
+        }
+
         // PUT api/WorkfreeDay/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutWorkfreeDay(int id, WorkfreeDay workfreeDay)
+        public IHttpActionResult Put(int id, WorkfreeDay workfreeDay)
         {
             if (!ModelState.IsValid)
             {
@@ -84,7 +96,7 @@ namespace EEUDataBase.Controllers
         // DELETE api/WorkfreeDay/5
         //[Authorize]
         [ResponseType(typeof(int))]
-        public IHttpActionResult DeleteWorkfreeDay(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!WorkfreeDayInDatabase(id))
             {

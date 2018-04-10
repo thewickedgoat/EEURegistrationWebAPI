@@ -17,7 +17,7 @@ namespace EEUDataBase_DLL.Facade
 
         private IRepository<Employee, int> employeeRepository;
 
-        private IRepository<HolidayYear, int> holidayYearRepository;
+        private IHolidayYearRepository holidayYearRepository;
 
         private IRepository<HolidayYearSpec, int> holidayYearSpecRepository;
 
@@ -27,7 +27,7 @@ namespace EEUDataBase_DLL.Facade
 
         private IRepository<Status, int> statusRepository;
 
-        private IRepository<WorkfreeDay, int> workfreeDayRepository;
+        private IWorkfreeDayRepository workfreeDayRepository;
 
         public IAbsenceRepository GetAbsenceRepository(IContext context)
         {
@@ -49,7 +49,7 @@ namespace EEUDataBase_DLL.Facade
             return statusRepository ?? (statusRepository = new StatusRepository(context));
         }
 
-        public IRepository<HolidayYear, int> GetHolidayYearRepository(IContext context)
+        public IHolidayYearRepository GetHolidayYearRepository(IContext context)
         {
             return holidayYearRepository ?? (holidayYearRepository = new HolidayYearRepository(context));
         }
@@ -69,7 +69,7 @@ namespace EEUDataBase_DLL.Facade
             return monthRepository ?? (monthRepository = new MonthRepository(context));
         }
 
-        public IRepository<WorkfreeDay, int> GetWorkfreeDayRepository(IContext context)
+        public IWorkfreeDayRepository GetWorkfreeDayRepository(IContext context)
         {
             return workfreeDayRepository ?? (workfreeDayRepository = new WorkfreeDayRepository(context));
         }

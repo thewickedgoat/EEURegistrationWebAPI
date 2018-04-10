@@ -10,7 +10,7 @@ using EEUDataBase_DLL.Models;
 
 namespace EEUDataBase_DLL.Repositories
 {
-    class WorkfreeDayRepository : IRepository<WorkfreeDay, int>
+    class WorkfreeDayRepository : IWorkfreeDayRepository
     {
         private IContext context;
 
@@ -34,6 +34,20 @@ namespace EEUDataBase_DLL.Repositories
             {
                 t.Employee = dbContext.Employees.FirstOrDefault(x => x.Id == t.Employee.Id);
                 dbContext.WorkfreeDays.Add(t);
+                dbContext.SaveChanges();
+                return t;
+            }
+        }
+
+        public List<WorkfreeDay> CreateWorkfreeDays(List<WorkfreeDay> t)
+        {
+            using (var dbContext = GetContext())
+            {
+                foreach (var workfreeDay in t)
+                {
+                    workfreeDay.Employee = dbContext.Employees.FirstOrDefault(x => x.Id == workfreeDay.Employee.Id);
+                    dbContext.WorkfreeDays.Add(workfreeDay);
+                }
                 dbContext.SaveChanges();
                 return t;
             }

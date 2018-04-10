@@ -17,7 +17,7 @@ namespace EEUDataBase.Controllers
 
         //[Authorize]
         // GET: api/Months
-        public IQueryable<HolidayYearSpec> GetHolidayYears()
+        public IQueryable<HolidayYearSpec> GetAll()
         {
             return new EnumerableQuery<HolidayYearSpec>(holidayYearSpecRepository.ReadAll());
         }
@@ -33,7 +33,7 @@ namespace EEUDataBase.Controllers
         // GET: api/HolidayYearSpec/5
         //[Authorize]
         [ResponseType(typeof(HolidayYearSpec))]
-        public IHttpActionResult GetHolidayYearSpec(int id)
+        public IHttpActionResult GetById(int id)
         {
             HolidayYearSpec holidayYearSpec = holidayYearSpecRepository.ReadById(id);
             if (holidayYearSpec == null)
@@ -46,7 +46,7 @@ namespace EEUDataBase.Controllers
         // POST: api/HolidayYearSpec
         //[Authorize]
         [ResponseType(typeof(HolidayYearSpec))]
-        public IHttpActionResult PostHolidayYearSpec(HolidayYearSpec holidayYearSpec)
+        public IHttpActionResult Post(HolidayYearSpec holidayYearSpec)
         {
             if (!ModelState.IsValid)
             {
@@ -60,7 +60,7 @@ namespace EEUDataBase.Controllers
         // PUT: api/HolidayYearSpec/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutHolidayYear(int id, HolidayYearSpec holidayYearSpec)
+        public IHttpActionResult Put(int id, HolidayYearSpec holidayYearSpec)
         {
             if (!ModelState.IsValid)
             {
@@ -80,7 +80,7 @@ namespace EEUDataBase.Controllers
         // DELETE: api/HolidayYearSpec/5
         //[Authorize]
         [ResponseType(typeof(HolidayYearSpec))]
-        public IHttpActionResult DeleteHolidayYear(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!HolidayYearInDatabase(id))
             {

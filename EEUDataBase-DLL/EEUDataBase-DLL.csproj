@@ -96,8 +96,10 @@
     <Compile Include="Facade\DLLFacade.cs" />
     <Compile Include="Interfaces\IAbsenceRepository.cs" />
     <Compile Include="Interfaces\IContext.cs" />
+    <Compile Include="Interfaces\IHolidayYearRepository.cs" />
     <Compile Include="Interfaces\IMonthRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IWorkfreeDayRepository.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationDBInitializer.cs" />
     <Compile Include="Models\ApplicationUser.cs" />

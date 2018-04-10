@@ -18,7 +18,7 @@ namespace EEUDataBase.Controllers
 
         //[Authorize]
         // GET: api/Months
-        public IQueryable<Month> GetMonths()
+        public IQueryable<Month> GetAll()
         {
             return new EnumerableQuery<Month>(monthRepository.ReadAll());
         }
@@ -34,7 +34,7 @@ namespace EEUDataBase.Controllers
         // GET: api/Months/5
         //[Authorize]
         [ResponseType(typeof(Month))]
-        public IHttpActionResult GetMonth(int id)
+        public IHttpActionResult GetById(int id)
         {
             Month month = monthRepository.ReadById(id);
             if (month == null)
@@ -47,7 +47,7 @@ namespace EEUDataBase.Controllers
         // POST: api/Month
         //[Authorize]
         [ResponseType(typeof(Month))]
-        public IHttpActionResult PostMonth(Month month)
+        public IHttpActionResult Post(Month month)
         {
             if (!ModelState.IsValid)
             {
@@ -59,23 +59,22 @@ namespace EEUDataBase.Controllers
             return CreatedAtRoute("DefaultAPI", new { id = month.Id }, month);
         }
 
-        //[Route("List")]
-        //[ResponseType(typeof(List<Month>))]
-        //public IHttpActionResult CreateList(List<Month> months)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    monthRepository.CreateMonths(months);
+        [ResponseType(typeof(List<Month>))]
+        public IHttpActionResult PostList(List<Month> months)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            monthRepository.CreateMonths(months);
 
-        //    return Ok(months);
-        //}
+            return Ok(months);
+        }
 
         // PUT: api/Month/5
         //[Authorize]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutMonth(int id, Month month)
+        public IHttpActionResult Put(int id, Month month)
         {
             if (!ModelState.IsValid)
             {
@@ -95,7 +94,7 @@ namespace EEUDataBase.Controllers
         // DELETE: api/Month/5
         //[Authorize]
         [ResponseType(typeof(Month))]
-        public IHttpActionResult DeleteMonth(int id)
+        public IHttpActionResult Delete(int id)
         {
             if (!MonthInDatabase(id))
             {

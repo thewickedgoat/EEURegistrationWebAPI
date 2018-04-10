@@ -10,7 +10,7 @@ using EEUDataBase_DLL.Models;
 
 namespace EEUDataBase_DLL.Repositories
 {
-    class HolidayYearRepository : IRepository<HolidayYear, int>
+    class HolidayYearRepository : IHolidayYearRepository
     {
         private IContext context;
 
@@ -37,6 +37,11 @@ namespace EEUDataBase_DLL.Repositories
                 dbContext.SaveChanges();
                 return t;
             }
+        }
+
+        public List<HolidayYear> CreateHolidayYears(List<HolidayYear> t)
+        {
+            throw new NotImplementedException();
         }
 
         public bool Delete(int id)
@@ -89,5 +94,7 @@ namespace EEUDataBase_DLL.Repositories
                 return t;
             }
         }
+
+       
     }
 }
