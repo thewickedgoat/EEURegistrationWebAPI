@@ -19,7 +19,7 @@ namespace EEUDataBase.Controllers
         private IRepository<Status, int> statusRepository = new DLLFacade().GetStatusRepository(new ApplicationDbContext());
 
         // GET api/Status
-        //[Authorize]
+        [Authorize]
         public IQueryable<Status> GetAll()
         {
             return new EnumerableQuery<Status>(statusRepository.ReadAll());
@@ -34,7 +34,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/Status/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Status))]
         public IHttpActionResult GetById(int id)
         {
@@ -48,7 +48,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/status
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Status))]
         public IHttpActionResult Post(Status status)
         {
@@ -62,7 +62,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT api/Status/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, Status status)
         {
@@ -80,7 +80,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE api/Status/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(int))]
         public IHttpActionResult Delete(int id)
         {

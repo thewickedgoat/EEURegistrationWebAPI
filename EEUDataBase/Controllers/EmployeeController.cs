@@ -19,6 +19,7 @@ namespace EEUDataBase.Controllers
         private IRepository<Employee, int> employeeDB = new DLLFacade().GetEmployeeRepository(new ApplicationDbContext());
 
         // GET api/Employees
+        [Authorize]
         public IQueryable<Employee> GetAll()
         {
             return new EnumerableQuery<Employee>(employeeDB.ReadAll());
@@ -33,7 +34,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/Employees/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Employee))]
         public IHttpActionResult GetById(int id)
         {
@@ -47,7 +48,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/employee
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Employee))]
         public IHttpActionResult Post(Employee employee)
         {
@@ -61,7 +62,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT api/Employees/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, Employee employee)
         {
@@ -79,7 +80,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE api/Employees/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(int))]
         public IHttpActionResult Delete(int id)
         {

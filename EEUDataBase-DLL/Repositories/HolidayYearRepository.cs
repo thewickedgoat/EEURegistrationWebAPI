@@ -33,6 +33,8 @@ namespace EEUDataBase_DLL.Repositories
         {
             using(var dbContext = GetContext())
             {
+                t.CurrentHolidayYear = dbContext.HolidayYearsSpecs.FirstOrDefault(x => x.Id == t.CurrentHolidayYear.Id);
+                t.Employee = dbContext.Employees.FirstOrDefault(x => x.Id == t.Employee.Id);
                 dbContext.HolidayYears.Add(t);
                 dbContext.SaveChanges();
                 return t;
@@ -89,6 +91,9 @@ namespace EEUDataBase_DLL.Repositories
             using(var dbContext = GetContext())
             {
                 var oldHolidayYear = dbContext.HolidayYears.FirstOrDefault(x => x.Id == t.Id);
+                t.CurrentHolidayYear = oldHolidayYear.CurrentHolidayYear;
+                t.Months = oldHolidayYear.Months;
+                t.Employee = oldHolidayYear.Employee;
                 dbContext.MarkHolidayYearAsModified(t, oldHolidayYear);
                 dbContext.SaveChanges();
                 return t;
