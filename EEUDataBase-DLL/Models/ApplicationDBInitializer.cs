@@ -520,9 +520,9 @@ namespace EEUDataBase_DLL.Models
 
             HolidayYearSpec currentHolidayYear = new HolidayYearSpec()
             {
-                Name = "2017-2018",
-                StartDate = new DateTime(2017, 5, 1),
-                EndDate = new DateTime(2018, 4, 30),
+                Name = "2018 - 2019",
+                StartDate = new DateTime(2018, 5, 1),
+                EndDate = new DateTime(2019, 4, 30),
                 HolidayYears = new List<HolidayYear>(),
                 PublicHolidays = new List<PublicHoliday>()
             };
@@ -530,40 +530,40 @@ namespace EEUDataBase_DLL.Models
             foreach (var emp in employees)
             {
                 List<Month> months = new List<Month>();
-                Month januar = new Month() { MonthDate = new DateTime(2018, 1, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month januar = new Month() { MonthDate = new DateTime(2019, 1, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month februar = new Month() { MonthDate = new DateTime(2018, 2, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month februar = new Month() { MonthDate = new DateTime(2019, 2, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month marts = new Month() { MonthDate = new DateTime(2018, 3, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month marts = new Month() { MonthDate = new DateTime(2019, 3, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month april = new Month() { MonthDate = new DateTime(2018, 4, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month april = new Month() { MonthDate = new DateTime(2019, 4, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month maj = new Month() { MonthDate = new DateTime(2017, 5, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month maj = new Month() { MonthDate = new DateTime(2018, 5, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month juni = new Month() { MonthDate = new DateTime(2017, 6, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month juni = new Month() { MonthDate = new DateTime(2018, 6, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month juli = new Month() { MonthDate = new DateTime(2017, 7, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month juli = new Month() { MonthDate = new DateTime(2018, 7, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month august = new Month() { MonthDate = new DateTime(2017, 8, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month august = new Month() { MonthDate = new DateTime(2018, 8, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month september = new Month() { MonthDate = new DateTime(2017, 9, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month september = new Month() { MonthDate = new DateTime(2018, 9, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month oktober = new Month() { MonthDate = new DateTime(2017, 10, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month oktober = new Month() { MonthDate = new DateTime(2018, 10, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                     IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month november = new Month() { MonthDate = new DateTime(2017, 11, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month november = new Month() { MonthDate = new DateTime(2018, 11, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                 IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
-                Month december = new Month() { MonthDate = new DateTime(2017, 12, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
+                Month december = new Month() { MonthDate = new DateTime(2018, 12, 1, 10, 0, 0), AbsencesInMonth = new List<Absence>(),
                     HolidayYear = new HolidayYear(),
                 IsLockedByEmployee = false, IsLockedByChief = false, IsLockedByCEO = false, IsLockedByAdmin = false };
                 months.Add(januar);
