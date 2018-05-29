@@ -4,12 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity;
 using System.Web.Http.Description;
 using EEUDataBase_DLL.Models;
 using EEUDataBase_DLL.Interfaces;
 using EEUDataBase_DLL.Entities;
 using EEUDataBase_DLL.Facade;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace EEUDataBase.Controllers

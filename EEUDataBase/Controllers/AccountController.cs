@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
@@ -10,17 +7,21 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.OAuth;
 using EEUDataBase_DLL.Models;
 using EEUDataBase_DLL.Entities;
+using EEUDataBase_DLL.Interfaces;
+using EEUDataBase_DLL.Facade;
 using EEUDataBase.Providers;
 
 namespace EEUDataBase.Controllers
 {
+
     //[Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
+        private IRepository<Employee, int> employeeDB = new DLLFacade().GetEmployeeRepository(new ApplicationDbContext());
+
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager userManager;
 
@@ -75,28 +76,29 @@ namespace EEUDataBase.Controllers
             }
             return Ok(employee.Id);
         }
+
         //[Authorize]
-        //[Route("Update")]
-        //public async Task<IHttpActionResult> Update(Employee employee)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-        //    string userId = employee.Id.ToString();
-        //    ApplicationUser user = await UserManager.FindByIdAsync(userId);
-        //    if(user == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    user.PasswordHash = UserManager.PasswordHasher.HashPassword(employee.Password);
-        //    var result = await UserManager.UpdateAsync(user);
-        //    if (!result.Succeeded)
-        //    {
-        //        return GetErrorResult(result);
-        //    }
-        //    return Ok(employee);
-        //}
+        [HttpPut]
+        [Route("Update")]
+        public async Task<IHttpActionResult> Update(Employee employeeToUpdate)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await UserManager.FindByNameAsync(employeeToUpdate.UserName);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            user.PasswordHash = UserManager.PasswordHasher.HashPassword(employeeToUpdate.Password);
+            var result = await UserManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
+            return Ok(employeeToUpdate);
+        }
 
 
         private IAuthenticationManager Authentication
