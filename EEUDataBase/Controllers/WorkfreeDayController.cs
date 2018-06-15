@@ -19,7 +19,7 @@ namespace EEUDataBase.Controllers
         private IWorkfreeDayRepository workfreeDayRepository = new DLLFacade().GetWorkfreeDayRepository(new ApplicationDbContext());
 
         // GET api/WorkfreeDay
-        [Authorize]
+        //[Authorize]
         public IQueryable<WorkfreeDay> GetAll()
         {
             return new EnumerableQuery<WorkfreeDay>(workfreeDayRepository.ReadAll());
@@ -34,7 +34,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/WorkfreeDay/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(WorkfreeDay))]
         public IHttpActionResult GetById(int id)
         {
@@ -48,7 +48,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/WorkfreeDay
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(WorkfreeDay))]
         public IHttpActionResult Post(WorkfreeDay workfreeDay)
         {
@@ -61,7 +61,7 @@ namespace EEUDataBase.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = workfreeDay.Id }, workfreeDay);
         }
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(List<WorkfreeDay>))]
         public IHttpActionResult PostList(List<WorkfreeDay> workfreeDays)
         {
@@ -75,7 +75,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT api/WorkfreeDay/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, WorkfreeDay workfreeDay)
         {
@@ -94,7 +94,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE api/WorkfreeDay/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(int))]
         public IHttpActionResult Delete(int id)
         {

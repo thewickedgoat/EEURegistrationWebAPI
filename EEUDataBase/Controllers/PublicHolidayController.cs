@@ -18,7 +18,7 @@ namespace EEUDataBase.Controllers
         private IRepository<PublicHoliday, int> publicHolidayRepository = new DLLFacade().GetPublicHolidayRepository(new ApplicationDbContext());
 
         // GET api/PublicHoliday
-        [Authorize]
+        //[Authorize]
         public IQueryable<PublicHoliday> GetAll()
         {
             return new EnumerableQuery<PublicHoliday>(publicHolidayRepository.ReadAll());
@@ -33,7 +33,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/PublicHoliday/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(PublicHoliday))]
         public IHttpActionResult GetById(int id)
         {
@@ -47,7 +47,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/PublicHoliday
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(PublicHoliday))]
         public IHttpActionResult Post(PublicHoliday publicHoliday)
         {
@@ -62,7 +62,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT api/PublicHoliday/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, PublicHoliday publicHoliday)
         {
@@ -81,7 +81,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE api/PublicHoliday/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(int))]
         public IHttpActionResult Delete(int id)
         {

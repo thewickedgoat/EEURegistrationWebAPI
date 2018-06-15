@@ -18,7 +18,7 @@ namespace EEUDataBase.Controllers
 
 
         // GET: api/Months
-        [Authorize]
+        //[Authorize]
         public IQueryable<Month> GetAll()
         {
             return new EnumerableQuery<Month>(monthRepository.ReadAll());
@@ -33,7 +33,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET: api/Months/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(Month))]
         public IHttpActionResult GetById(int id)
         {
@@ -46,7 +46,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST: api/Month
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(Month))]
         public IHttpActionResult Post(Month month)
         {
@@ -59,7 +59,8 @@ namespace EEUDataBase.Controllers
 
             return CreatedAtRoute("DefaultAPI", new { id = month.Id }, month);
         }
-        [Authorize]
+
+        //[Authorize]
         [ResponseType(typeof(List<Month>))]
         public IHttpActionResult PostList(List<Month> months)
         {
@@ -73,7 +74,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT: api/Month/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, Month month)
         {

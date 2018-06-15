@@ -114,6 +114,7 @@
     <Compile Include="Repositories\PublicHolidayRepository.cs" />
     <Compile Include="Repositories\StatusRepository.cs" />
     <Compile Include="Repositories\WorkfreeDayRepository.cs" />
+    <Compile Include="Services\EmailService.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

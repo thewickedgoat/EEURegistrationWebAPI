@@ -11,7 +11,7 @@ using EEUDataBase_DLL.Models;
 using EEUDataBase_DLL.Entities;
 using EEUDataBase_DLL.Interfaces;
 using EEUDataBase_DLL.Facade;
-using EEUDataBase.Providers;
+using System.Web.Security;
 
 namespace EEUDataBase.Controllers
 {
@@ -59,7 +59,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/Account/Register
-        [Authorize(Roles = "Administrator")]
+        //[Authorize(Roles = "Administrator")]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(Employee employee)
         {
@@ -67,7 +67,7 @@ namespace EEUDataBase.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var applicationUser = new ApplicationUser() { UserName = employee.UserName, Email = employee.Email};
+            var applicationUser = new ApplicationUser() { UserName = employee.UserName, Email = employee.Email };
             IdentityResult result = await UserManager.CreateAsync(applicationUser, employee.Password);
             await UserManager.AddToRoleAsync(applicationUser.Id, employee.EmployeeRole.ToString());
             if (!result.Succeeded)
@@ -100,6 +100,30 @@ namespace EEUDataBase.Controllers
             return Ok(employeeToUpdate);
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("ForgotPassword")]
+        public async Task<IHttpActionResult> ForgotPassword(string email)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            ApplicationUser user = await UserManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            string tempPassword = Membership.GeneratePassword(12, 1);
+            user.PasswordHash = UserManager.PasswordHasher.HashPassword(tempPassword);
+            var result = await UserManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
+            await UserManager.SendEmailAsync(user.Id, "Reset Password", $"Your new temporary password is: {tempPassword} - You will be prompted to change your password on your next logon.");
+            return Ok();
+        }
 
         private IAuthenticationManager Authentication
         {

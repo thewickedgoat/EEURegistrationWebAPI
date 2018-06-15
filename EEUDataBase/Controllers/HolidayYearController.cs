@@ -15,7 +15,7 @@ namespace EEUDataBase.Controllers
     {
         private IHolidayYearRepository holidayYearRepository = new DLLFacade().GetHolidayYearRepository(new ApplicationDbContext());
 
-        [Authorize]
+        //[Authorize]
         // GET: api/Months
         public IQueryable<HolidayYear> GetAll()
         {
@@ -31,7 +31,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET: api/HolidayYear/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(HolidayYear))]
         public IHttpActionResult GetById(int id)
         {
@@ -44,7 +44,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST: api/HolidayYear
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(HolidayYear))]
         public IHttpActionResult Post(HolidayYear holidayYear)
         {
@@ -58,7 +58,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT: api/HolidayYear/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, HolidayYear holidayYear)
         {
@@ -78,7 +78,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE: api/HolidayYear/5
-        [Authorize]
+        //[Authorize]
         [ResponseType(typeof(HolidayYear))]
         public IHttpActionResult Delete(int id)
         {

@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using System.Threading.Tasks;
+using EEUDataBase_DLL.Services;
 
 namespace EEUDataBase_DLL.Models
 {
@@ -28,11 +29,18 @@ namespace EEUDataBase_DLL.Models
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                //RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = true,
                 //RequireDigit = true,
                 //RequireLowercase = true,
                 //RequireUppercase = true,
             };
+            //Lockout - fx if access is requested more than 5 times
+            manager.UserLockoutEnabledByDefault = true;
+            manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(1);
+            manager.MaxFailedAccessAttemptsBeforeLockout = 5;
+
+            //Email service
+            manager.EmailService = new EmailService();
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {
