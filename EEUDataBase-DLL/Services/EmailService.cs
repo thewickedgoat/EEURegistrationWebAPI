@@ -12,9 +12,9 @@ namespace EEUDataBase_DLL.Services
         public Task SendAsync(IdentityMessage message)
         {
             // Credentials:
-            var credentialUserName = "noahbock";
+            var credentialUserName = ""; //fill out later
             var sentFrom = "no-reply@eeu.dk";
-            var sendGridPassword = "Ask68mwj.";
+            var sendGridPassword = ""; //fill out later
 
             // Configure the client:
             var client =
