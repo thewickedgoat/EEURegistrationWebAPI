@@ -17,7 +17,7 @@ namespace EEUDataBase.Controllers
         private IRepository<Department, int> departmentDB = new DLLFacade().GetDepartmentRepository(new ApplicationDbContext());
 
         // GET api/Departments>
-        //[Authorize]
+        [Authorize]
         public IQueryable<Department> GetAll()
         {
             return new EnumerableQuery<Department>(departmentDB.ReadAll());
@@ -32,7 +32,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET api/Departments/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(Department))]
         public IHttpActionResult GetById(int id)
         {
@@ -45,7 +45,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/Departments
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         [ResponseType(typeof(Department))]
         public IHttpActionResult Post(Department department)
         {
@@ -59,7 +59,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT api/Departments/5
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, Department department)
         {

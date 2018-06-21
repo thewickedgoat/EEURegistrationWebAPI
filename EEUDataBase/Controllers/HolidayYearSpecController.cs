@@ -17,7 +17,7 @@ namespace EEUDataBase.Controllers
 
 
         // GET: api/Months
-        //[Authorize]
+        [Authorize]
         public IQueryable<HolidayYearSpec> GetAll()
         {
             return new EnumerableQuery<HolidayYearSpec>(holidayYearSpecRepository.ReadAll());
@@ -32,7 +32,7 @@ namespace EEUDataBase.Controllers
         }
 
         // GET: api/HolidayYearSpec/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(HolidayYearSpec))]
         public IHttpActionResult GetById(int id)
         {
@@ -45,7 +45,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST: api/HolidayYearSpec
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(HolidayYearSpec))]
         public IHttpActionResult Post(HolidayYearSpec holidayYearSpec)
         {
@@ -59,7 +59,7 @@ namespace EEUDataBase.Controllers
         }
 
         // PUT: api/HolidayYearSpec/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(void))]
         public IHttpActionResult Put(int id, HolidayYearSpec holidayYearSpec)
         {
@@ -79,7 +79,7 @@ namespace EEUDataBase.Controllers
         }
 
         // DELETE: api/HolidayYearSpec/5
-        //[Authorize]
+        [Authorize]
         [ResponseType(typeof(HolidayYearSpec))]
         public IHttpActionResult Delete(int id)
         {

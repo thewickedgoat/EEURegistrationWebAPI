@@ -208,3 +208,5 @@ C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataB
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.csproj.CopyComplete
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.dll
 C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\obj\Debug\EEUDataBase.pdb
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\System.Web.Http.Cors.dll
+C:\Users\nob\Desktop\GitHub\EEURegistrationWebAPI\EEUDataBase\bin\System.Web.Http.Cors.xml

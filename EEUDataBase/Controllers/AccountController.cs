@@ -16,7 +16,7 @@ using System.Web.Security;
 namespace EEUDataBase.Controllers
 {
 
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
@@ -77,7 +77,7 @@ namespace EEUDataBase.Controllers
             return Ok(employee.Id);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPut]
         [Route("Update")]
         public async Task<IHttpActionResult> Update(Employee employeeToUpdate)

@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace EEUDataBase_DLL.Models
 {
-    public class ApplicationDBInitializer : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class ApplicationDBInitializer : CreateDatabaseIfNotExists<ApplicationDbContext> //DropCreateDatabaseAlways
     {
         protected override void Seed(ApplicationDbContext context)
         {
