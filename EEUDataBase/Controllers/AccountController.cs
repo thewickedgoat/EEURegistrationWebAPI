@@ -59,7 +59,7 @@ namespace EEUDataBase.Controllers
         }
 
         // POST api/Account/Register
-        //[Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator")]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(Employee employee)
         {
@@ -76,6 +76,43 @@ namespace EEUDataBase.Controllers
             }
             return Ok(employee.Id);
         }
+        [Authorize(Roles = "Administrator")]
+        [HttpDelete]
+        [Route("Remove")]
+        public async Task<IHttpActionResult> Remove(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Employee employeeToDelete = employeeDB.ReadById(id);
+            ApplicationUser user = await UserManager.FindByNameAsync(employeeToDelete.UserName);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            //var logins = user.Logins;
+
+            //var rolesForUser = await UserManager.GetRolesAsync(id.ToString());
+
+            //foreach(var login in logins)
+            //{
+            //    await UserManager.RemoveLoginAsync(login.UserId, new UserLoginInfo(login.LoginProvider, login.ProviderKey));
+            //}
+            //if(rolesForUser.Count > 0)
+            //{
+            //    foreach(var item in rolesForUser)
+            //    {
+            //        var result = await UserManager.RemoveFromRoleAsync(user.Id, item);
+            //    }
+            //}
+            await UserManager.DeleteAsync(user);
+
+            return Ok(employeeToDelete.Id);
+        }
+
 
         [Authorize]
         [HttpPut]
